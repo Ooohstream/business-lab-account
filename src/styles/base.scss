@@ -1,0 +1,35 @@
+$whitish: #fafafa;
+$bluish: #4b6deb;
+
+.btn {
+  padding: 0.9em 1.5em;
+  text-align: center;
+  border-radius: 1em;
+  font-weight: 500;
+  outline: none;
+  cursor: pointer;
+}
+
+.input-text {
+  padding: 1em 0.5em;
+  outline: none;
+  border: rgb(150, 150, 150) solid 1px;
+  border-radius: 0.5em;
+}
+
+.btn-primary {
+  background: $bluish;
+  color: $whitish;
+  border: none;
+  outline: none;
+}
+
+.--blue-shadow {
+  box-shadow: $bluish 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.btn-primary-outline {
+  background: $whitish;
+  color: $bluish;
+  border: $bluish solid 2px;
+}
