@@ -3,7 +3,7 @@
     <section class="left"></section>
     <section class="right">
       <form @submit.prevent="login">
-        <div class="logo"><img src="@/assets/logo.png" /></div>
+        <div v-if="!loggedIn" class="logo"><img src="@/assets/logo.png" /></div>
         <div class="username-password">
           <input
             type="text"
@@ -29,6 +29,7 @@
         <div class="need-registration">
           <span> Нет акканта? </span>
           <a class="btn btn-primary-outline">Регистрация</a>
+          <a class="btn btn-danger-outline" @click="logout">Logout--test</a>
         </div>
       </form>
     </section>
@@ -51,6 +52,14 @@ export default {
         username: this.username,
         password: this.password,
       });
+    },
+    logout() {
+      this.$store.dispatch("logout");
+    },
+  },
+  computed: {
+    loggedIn() {
+      return this.$store.getters.loggedIn;
     },
   },
 };

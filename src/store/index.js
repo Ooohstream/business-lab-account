@@ -4,11 +4,15 @@ import { createStore } from 'vuex';
 
 export default createStore({
   state: {
-    token: localStorage.getItem('token') || null,
+    access_token: localStorage.getItem('access_token') || null,
   },
   mutations: {
     login(state, access_token) {
       state.access_token = access_token;
+    },
+
+    logout(state) {
+      state.access_token = null;
     },
   },
   actions: {
@@ -28,6 +32,15 @@ export default createStore({
           ctx.commit('login', access_token);
         })
         .catch(error => console.log(error));
+    },
+    async logout(ctx) {
+      localStorage.removeItem('access_token');
+      ctx.commit('logout');
+    },
+  },
+  getters: {
+    loggedIn(state) {
+      return state.access_token != null;
     },
   },
   modules: {},
