@@ -1,22 +1,27 @@
 <template>
     <div class="container">
-        <div class="img__block">
-            <img :src="imageUrl" />
+        <div class="content__head">
+            <div class="img__block">
+                <img :src="imageUrl" />
+            </div>
+            <div class="content__header">
+                <h1>Lorem ipsum{{title}}</h1>
+                <h3>by: Sigarachi{{author}}</h3>
+            </div>
         </div>
         <div class="post__content">
-            <div class="content__header">
-                <h1>{{title}}</h1>
-                <h3>by: {{author}}</h3>
-            </div>
             <div class="content__main">
-                <p>{{content}}</p>
+                <p>{{content}}
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis dignissimos quae, non mollitia, nulla provident et explicabo voluptas, exercitationem consequuntur dolore quia alias natus aliquid deleniti amet cumque eaque voluptate?
+                </p>
             </div>
             <div class="content__footer">
-                <button class="btn btn-primary"> ♥ {{likeNumber}}</button>
+                <button class="btn btn-primary"> ♥ {{likeCount}}</button>
             </div>
+            <CommentsComponent :postComments="postComments"/>
         </div>
         <br>
-        <CommentsComponent :postComments="postComments"/>
+        
     </div>
 </template>
 
@@ -55,3 +60,30 @@ export default {
     }
 }
 </script>
+
+<style lang="scss">
+.container {
+    margin: 0 auto;
+    padding-top: 70px;
+    left: 10%;
+    width: 50%;
+    display: block;
+    justify-content: space-between;
+    .img__block{
+        width: 30%;
+        background: grey;
+        margin-right: 10px;
+    }
+    .content__head{
+        display: flex;
+        height: 200px;
+        margin-bottom: 30px;
+        .content__header{
+            position: absolute;
+            top: 212px;
+            left: 41%;
+        }
+    }
+    
+}
+</style>
