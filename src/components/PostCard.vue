@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import CommentsComponent from "../components/CommentsComponent"
+import CommentsComponent from "@/components/CommentsComponent";
 export default {
     name: 'PostCard',
     props:{
@@ -40,7 +40,7 @@ export default {
         }
     },
     components:{
-        CommentsComponent
+        CommentsComponent: CommentsComponent
     }
-}
+};
 </script>

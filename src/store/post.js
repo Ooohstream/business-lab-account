@@ -1,12 +1,6 @@
 import {getPost, getPosts} from "@/services/posts.service"
 
 
-const state = () => ({
-    post: {},
-    posts: [],
-    postError: null
-})
-
 const mutations = {
     setPost(state, post) {
         state.post = post
@@ -44,10 +38,16 @@ const getters = {
     postError: ({postError})=> postError
 }
 
+const state = () => ({
+    post: {},
+    posts: [],
+    postError: null
+})
+
 
 export default {
-    mutations,
-    state,
-    actions,
+    state, 
+    mutations, 
+    actions, 
     getters
 }

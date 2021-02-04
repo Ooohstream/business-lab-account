@@ -8,7 +8,6 @@
     <div class="comments__else__wrapper" v-else>
         <p>Комментариев нет</p>
     </div>
-    
 </template>
 
 <script>
@@ -20,5 +19,5 @@ export default {
             default: () => []
         }
     }
-}
+};
 </script>

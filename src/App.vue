@@ -1,22 +1,34 @@
 <template>
-  
-  <PostLst :posts="posts"/>
-  <router-view />
+   <div id="apps"> 
+      <PostLst :posts="posts"/>
+      <router-view > </router-view>
+   </div>
 </template>
 
 
 <script>
-import PostLst from "../src/components/layouts/PostLst"
+import PostLst from "@/components/PostLst";
+import {mapGetters, mapActions} from "vuex";
+
 export default {
-  name: "mainwrapper",
-  modules:{
+  name: "App",
+  components:{
     PostLst
   },
-  data: () => ({
-    posts: [
-      {title:"Huy", content:"Hey", imageUrl:"sss"}
-    ]
-  }),
+  mounted(){
+    this.fetchPosts()
+    console.log(this.$store)
+  },
+  computed:{
+    ...mapGetters({
+      posts: "posts",
+    })
+  },
+  methods:{
+    ...mapActions({
+      fetchPosts: "fetchPosts",
+    })
+  }
 };
 </script>
 
