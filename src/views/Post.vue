@@ -80,6 +80,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
 .container {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0 auto;
@@ -99,7 +101,7 @@ export default {
         margin-bottom: 30px;
         .content__header{
             position: absolute;
-            top: 200px;
+            top: 205px;
             left: 41%;
         }
     }
