@@ -1,11 +1,11 @@
 import Vue from "vue";
-import Vuex from "vuex";
-import post from "./post";
+import Vuex from 'vuex';
+import post from "@/store/post";
 
-Vue.use(Vuex);
+Vue.use(Vuex)
 
 export default new Vuex.Store({
-  modules:{
-    post
-  }
-});
+    modules:{
+        post,
+    }
+})
