@@ -33,6 +33,23 @@
                             <div class="post_line"></div>
                         </div>
                     </div>
+                    <br >
+                </div>
+                <div class="team">
+                    <h4>Team</h4>
+                    <div class="team__lst" v-for="(mate, key) in team" :key="key">
+                        <div class="mate__avatar">
+                            <img src="@/assets/logo.png">
+                        </div>
+                        <div class="mate__about">
+                            <div class="name">
+                                <h4>{{mate.name}}</h4>
+                            </div>
+                            <div class="status">
+                                {{mate.status}}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -52,6 +69,15 @@ export default {
                 {state:"current", name: "Huy", description: "Huy"},
                 {state:"not_active", name: "Huy", description: "Huy"}
             ]
+        },
+        team:{
+            type: Array,
+            default: ()=>[
+                {name: "Alex", status:"Initiator", avatar:"@/assets/logo.png"},
+                {name: "Pavel", status:"Investor", avatar:"@/assets/logo.png"},
+                {name: "Tom", status:"Programmer", avatar:"@/assets/logo.png"},
+                {name: "Jack", status:"Designer", avatar:"@/assets/logo.png"}
+            ],
         }
     }
 }
@@ -60,7 +86,8 @@ export default {
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 $bluish: #4b6deb;
-$grayish:  rgba(207, 207, 207);
+$grayish:  rgb(237, 237, 237);
+$bcolor: #9de2ff;
 
 .container {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -108,6 +135,8 @@ $grayish:  rgba(207, 207, 207);
 
     .stages{
         display: block;
+        height: 600px;
+        border-bottom: 0.3px solid gray;
         .stage__lst{
             display: flex;
             margin-top: 50px;
@@ -121,6 +150,9 @@ $grayish:  rgba(207, 207, 207);
                 border-radius: 35px;
                 background: $grayish;
                 z-index: 1;
+                -webkit-box-shadow: 0px 18px 8px 0px rgba(34, 60, 80, 0.2);
+                -moz-box-shadow: 0px 18px 8px 0px rgba(34, 60, 80, 0.2);
+                box-shadow: 0px 18px 8px 0px rgba(34, 60, 80, 0.2);
                 .stage__name, .stage__description{
                     margin-left: 100px;
                     
@@ -137,7 +169,7 @@ $grayish:  rgba(207, 207, 207);
             }
             .current{
                 .point{
-                    border: 1px solid $bluish;
+                    border: 1px solid $bcolor;
                 }
             }
             .pre_line, .post_line{
@@ -156,6 +188,23 @@ $grayish:  rgba(207, 207, 207);
                 .pre_line{
                     background: $bluish;
                 }
+            }
+        }
+    }
+
+    .team{
+        margin-top: 30px;
+
+        .team__lst{
+            margin-top: 20px;
+            display: flex;
+            .mate__avatar img{
+                width: 70px;
+                height: 70px;
+            }
+            .mate__about{
+                margin-top: 15px;
+                margin-left: 30px;
             }
         }
     }
