@@ -1,16 +1,18 @@
 <template>
-    <router-view />
+   
+    <PostLst :posts="testPost"/>
+   
 </template>
 
 
 <script>
-//import PostLst from "@/components/PostLst";
+import PostLst from "@/components/PostLst";
 import {mapGetters, mapActions} from "vuex";
 
 export default {
-  name: "App",
+  name: "Home",
   components:{
-    //PostLst
+    PostLst
   },
   data: () => ({
     testPost:[
