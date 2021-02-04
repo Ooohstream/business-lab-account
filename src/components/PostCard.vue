@@ -11,7 +11,8 @@
                 <p>{{content}}</p>
             </div>
             <div class="post__footer">
-                <button class="btn btn-primary"> ♥ {{likeNumber}}</button>
+                
+                <button class="btn btn-primary" id="about"> Подробнее  </button>
             </div>
         </div>
     </div>

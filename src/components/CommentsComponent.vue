@@ -21,3 +21,9 @@ export default {
     }
 };
 </script>
+
+<style lang="scss">
+.comments__wrapper{
+    margin-top:20px;
+}
+</style>

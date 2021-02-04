@@ -15,9 +15,13 @@
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis dignissimos quae, non mollitia, nulla provident et explicabo voluptas, exercitationem consequuntur dolore quia alias natus aliquid deleniti amet cumque eaque voluptate?
                 </p>
             </div>
+            <hr />
+
             <div class="content__footer">
                 <button class="btn btn-primary"> ♥ {{likeCount}}</button>
+                Понравилась запись? Продвинь её в топ!
             </div>
+            
             <CommentsComponent :postComments="postComments"/>
         </div>
         <br>
@@ -63,6 +67,7 @@ export default {
 
 <style lang="scss">
 .container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0 auto;
     padding-top: 70px;
     left: 10%;
@@ -80,9 +85,19 @@ export default {
         margin-bottom: 30px;
         .content__header{
             position: absolute;
-            top: 212px;
+            top: 200px;
             left: 41%;
         }
+    }
+    .post__content{
+        .content__main{
+            margin-bottom: 20px;
+        }
+        .content__footer{
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        
     }
     
 }
