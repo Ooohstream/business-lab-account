@@ -1,15 +1,19 @@
 <template>
   <div class="register">
     <form @submit.prevent="register">
-      <label>Email</label>
+      <label>@Email</label>
       <input type="email" class="input-text" v-model="email" />
-      <label>Password</label>
+      <label>Пароль</label>
       <input type="password" class="input-text" v-model="password" />
-      <label>Repeat password</label>
+      <label>Повтор пароля</label>
       <input type="password" class="input-text" v-model="repeat_password" />
-      <label>Username</label>
+      <label>Имя пользователя</label>
       <input type="text" class="input-text" v-model="username" />
-      <input type="submit" class="btn btn-primary --blue-shadow" />
+      <input
+        type="submit"
+        class="btn btn-primary --blue-shadow"
+        value="Зарегистрироваться"
+      />
     </form>
   </div>
 </template>
@@ -50,22 +54,21 @@ export default {
 
 <style lang='scss' scoped>
 .register {
-  width: 100%;
-  height: 50%;
-
   form {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    width: 85%;
+    margin: 0 auto;
 
     label {
       display: block;
-      margin: 1em;
+      margin: 1em 0;
     }
 
     input[type="submit"] {
-      margin-top: 1em;
+      margin-top: 2em;
+      font-size: 1rem;
+      font-weight: 700;
     }
   }
 }

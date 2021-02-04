@@ -1,13 +1,7 @@
 <template>
   <div class="main">
-    <nav
-      :style="{
-        visibility: $route.path === '/register' ? 'hidden' : 'visible',
-      }"
-    >
-      <ul
-        :style="{ visibility: $route.path === '/login' ? 'hidden' : 'visible' }"
-      >
+    <nav v-if="$route.name != 'Login'">
+      <ul>
         <li>
           <router-link to="/user:25"
             ><img
@@ -94,9 +88,5 @@ body {
       }
     }
   }
-}
-
-.none {
-  visibility: hidden;
 }
 </style>

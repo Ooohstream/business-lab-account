@@ -28,7 +28,11 @@
         </div>
         <div class="need-registration">
           <span> Нет акканта? </span>
-          <a class="btn btn-primary-outline" @click="toRegister">Регистрация</a>
+          <a class="btn btn-primary-outline" @click="openRegister"
+            >Регистрация</a
+          >
+          <modal v-show="isModalVisible" @close="closeRegister" />
+
           <!-- <a class="btn btn-danger-outline" @click="logout">Logout--test</a> -->
         </div>
       </form>
@@ -37,11 +41,15 @@
 </template>
 
 <script>
+import modal from "@/components/modal.vue";
+
 export default {
+  components: { modal },
   data() {
     return {
       username: "",
       password: "",
+      isModalVisible: false,
     };
   },
   methods: {
@@ -56,8 +64,12 @@ export default {
       this.$store.dispatch("logout");
     },
 
-    toRegister() {
-      this.$router.push({ path: "register" });
+    openRegister() {
+      this.isModalVisible = true;
+    },
+
+    closeRegister() {
+      this.isModalVisible = false;
     },
   },
   computed: {
@@ -73,7 +85,7 @@ export default {
   display: grid;
   grid-template-columns: 0.5fr 1fr;
   grid-template-rows: 1fr;
-  width: 100%;
+  width: 100vw;
   height: 100%;
   background: $whitish;
 
@@ -120,7 +132,7 @@ export default {
 
         input {
           margin: 1em;
-          width: 70%;
+          width: 21em;
         }
       }
 
@@ -130,6 +142,7 @@ export default {
         display: flex;
         align-items: center;
         justify-content: center;
+        margin-top: 1em;
 
         a {
           display: block;
@@ -153,6 +166,7 @@ export default {
         display: flex;
         align-items: center;
         justify-content: center;
+        margin-top: 2em;
 
         span {
           display: block;

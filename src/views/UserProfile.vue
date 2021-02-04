@@ -5,13 +5,13 @@
     </div>
     <div class="cell-2">
       <hr />
-      <h1>John Doe</h1>
+      <h1>{{ `${firstName} ${lastName}` }}</h1>
     </div>
     <div class="cell-3">
-      <h1>Контакты:</h1>
+      <h1>Мои контакты и социальные сети:</h1>
       <hr />
-      <span>Телефон: 898514236</span>
-      <span>Email: blablabla@gmail.com</span>
+      <span>Телефон: {{ phoneNumber }}</span>
+      <span>Email: hackatom@gmail.com</span>
       <div class="socials">
         <a href="#"><img src="@/assets/icons/vk.png" /></a>
         <a href="#"><img src="@/assets/icons/facebook.png" /></a>
@@ -24,7 +24,15 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      firstName: "Василиса",
+      lastName: "Пупкина",
+      phoneNumber: "8915423456",
+    };
+  },
+};
 </script>
 
 <style lang='scss'>
@@ -50,7 +58,7 @@ export default {};
     justify-content: center;
 
     img {
-      height: 400px;
+      height: 250px;
       border: lightblue solid 0.9px;
       border-radius: 10em;
     }
