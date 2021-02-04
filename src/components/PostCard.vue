@@ -5,10 +5,10 @@
         </div>
         <div class="informaiton__block">
             <div class="post__header">
-                <span>{{title}}</span>
+                <h1>{{title}}</h1>
             </div>
             <div class="post__details">
-                {{content}}
+                <p>{{content}}</p>
             </div>
             <div class="post__footer">
                 <button class="btn btn-primary"> ♥ {{likeNumber}}</button>

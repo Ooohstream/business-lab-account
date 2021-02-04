@@ -41,34 +41,60 @@ $bluish: #4b6deb;
   width: 50%;
   margin-left: 10%;
   margin-top: 10%;
+  align-items: center;
 }
 
 .post__card{
   display: flex;
-  justify-content: space-between;
-  width: 300px;
-  
-}
-
-.posts__container{
-  border: 1px solid black;
+  flex-direction: inherit;
+  margin: 1rem auto;
+  box-shadow: 0 3px 7px -1px rgba(#000, .1);
+  margin-bottom: 1.6%;
+  background: white;
+  line-height: 1.4;
+  font-family: sans-serif;
   border-radius: 5px;
-  padding: 5px;
-  margin-top: 10px;
-  .post__header{
-    font-weight: 1000;
+  overflow: hidden;
+  z-index: 0;
+  height: 180px;
+  .img__block{
+    margin-right: 200px;
   }
-}
+  .information__block{
+    
+    padding: 1rem;
+    background: white;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 1;
+    h1,
+    h2 {
+      font-family: Poppins, sans-serif;
+    }
+    h1 {
+      line-height: 1;
+      
+      font-size: 1.7rem;
+    }
+    h2 {
+      font-size: 1rem;
+      font-weight: 300;
+      text-transform: uppercase;
+      color: grey;
+      margin-top: 5px;
+    }
+    button{
+      top:100%;
+    }
+  }
 
-.post__footer{
-  justify-content: space-between;
-  margin-top: 10px;
-  align-items: center;
-}
-
-.img__block{
-  border-right: 1px solid gray;
-  width: 70%;
+  &:hover{
+    border-bottom: 1px lightblue solid;
+    box-shadow: 0 3px 7px -1px rgba(195, 233, 255);
+    
+  }
 }
 
 
