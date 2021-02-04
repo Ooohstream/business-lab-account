@@ -33,3 +33,42 @@ $bluish: #4b6deb;
   color: $bluish;
   border: $bluish solid 2px;
 }
+
+.posts__list{
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: block;
+  justify-content: space-between;
+  width: 50%;
+  margin-left: 10%;
+  margin-top: 10%;
+}
+
+.post__card{
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+  
+}
+
+.posts__container{
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  margin-top: 10px;
+  .post__header{
+    font-weight: 1000;
+  }
+}
+
+.post__footer{
+  justify-content: space-between;
+  margin-top: 10px;
+  align-items: center;
+}
+
+.img__block{
+  border-right: 1px solid gray;
+  width: 70%;
+}
+
+

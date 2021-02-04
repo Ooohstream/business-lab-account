@@ -1,6 +1,6 @@
 <template>
    <div id="apps"> 
-      <PostLst :posts="posts"/>
+      <PostLst :posts="testPost"/>
       <router-view > </router-view>
    </div>
 </template>
@@ -15,6 +15,13 @@ export default {
   components:{
     PostLst
   },
+  data: () => ({
+    testPost:[
+      {title:"Huy", content:"Huy", imageUrl:"Huy"},
+      {title:"Huy", content:"Huy", imageUrl:"Huy"},
+      {title:"Huy", content:"Huy", imageUrl:"Huy"}
+      ]
+  }),
   mounted(){
     this.fetchPosts()
     console.log(this.$store)

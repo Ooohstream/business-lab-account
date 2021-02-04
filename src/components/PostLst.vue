@@ -1,5 +1,5 @@
 <template>
-    <div v-if="posts.length != 0">
+    <div v-if="posts.length != 0" class="posts__list">
         <div class="posts__container"  v-for="(post ,key) in posts" :key="key">
             <PostCard :title="post.title" :content="post.content" :imageUrl="post.imageUrl" />
         </div>
@@ -13,7 +13,9 @@ export default {
     props:{
         posts:{
             type: Array,
-            default: () => []
+            default: () => [
+               
+            ]
         },
     },
     components:{
@@ -21,3 +23,4 @@ export default {
     }
 };
 </script>
+

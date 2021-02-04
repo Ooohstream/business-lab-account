@@ -1,20 +1,23 @@
 <template>
     <div class="post__card">
-        <img :src="imageUrl"/>
-        <div class="post__header">
-            {{title}}
+        <div class="img__block">
+            <img :src="imageUrl"/>
         </div>
-        <div class="post__details">
-            {{content}}
+        <div class="informaiton__block">
+            <div class="post__header">
+                <span>{{title}}</span>
+            </div>
+            <div class="post__details">
+                {{content}}
+            </div>
+            <div class="post__footer">
+                <button class="btn btn-primary"> ♥ {{likeNumber}}</button>
+            </div>
         </div>
-    </div>
-    <div class="post__comments">
-        <CommentsComponent :postComments="postComments"/>
     </div>
 </template>
 
 <script>
-import CommentsComponent from "@/components/CommentsComponent";
 export default {
     name: 'PostCard',
     props:{
@@ -39,8 +42,5 @@ export default {
             default: () => []
         }
     },
-    components:{
-        CommentsComponent: CommentsComponent
-    }
 };
 </script>
