@@ -93,7 +93,7 @@ export default {
     .img__block{
         width: 30%;
         margin-top: 84px;
-        margin-left: 30px
+        margin-left: 30px;
     }
     .content__head{
         display: flex;
