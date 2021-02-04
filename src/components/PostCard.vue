@@ -1,7 +1,7 @@
 <template>
     <div class="post__card">
         <div class="img__block">
-            <img :src="imageUrl"/>
+            <img src="@/assets/logo.png" />
         </div>
         <div class="informaiton__block">
             <div class="post__header">
@@ -32,7 +32,7 @@ export default {
         },
         imageUrl:{
             type: String,
-            default: ''
+            default: "@/assets/logo.png"
         },
         likeNumber:{
             type: Number,

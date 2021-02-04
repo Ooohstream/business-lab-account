@@ -2,7 +2,7 @@
     <div class="container">
         <div class="content__head">
             <div class="img__block">
-                <img :src="imageUrl" />
+                <img :src="imageUrl">
             </div>
             <div class="content__header">
                 <h1>Lorem ipsum{{title}}</h1>
@@ -57,7 +57,7 @@ export default {
         },
         imageUrl:{
             type: String,
-            default: ''
+            default: '@/assets/logo.png'
         }
     },
     mounted(){

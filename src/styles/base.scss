@@ -59,9 +59,14 @@ $bluish: #4b6deb;
   height: 200px;
   
   .img__block{
-    width: 25%;
+    width: 50%;
     border-right: 1px solid rgba(207, 207, 207);
     margin-right: 15px;
+    img{
+      width: 50%;
+      margin-top: 50px;
+      margin-left: 50px;
+    }
   }
   .informaiton__block{
     width: inherit;
@@ -70,6 +75,11 @@ $bluish: #4b6deb;
     position: relative;
     justify-content: space-between;
     z-index: 1;
+
+    .post__header{
+      margin-bottom: 10px;
+    }
+
     h1,
     h2 {
       font-family: Poppins, sans-serif;
@@ -84,17 +94,17 @@ $bluish: #4b6deb;
       font-weight: 300;
       text-transform: uppercase;
       color: grey;
-      margin-top: 5px;
+      margin-top: 10px;
     }
     .post__footer{
       
       position: absolute;
-      bottom: 5px;
+      bottom: 10px;
       left: 15px;
       display: flex;
       justify-content: space-between;
       #about{
-        margin-left: 500%;
+        margin-left: 550%;
       }
     }
   }

@@ -16,9 +16,9 @@ export default {
   },
   data: () => ({
     testPost:[
-      {title:"Huy", content:"Huy", imageUrl:"Huy"},
-      {title:"Huy", content:"Huy", imageUrl:"Huy"},
-      {title:"Huy", content:"Huy", imageUrl:"Huy"}
+      {title:"Lorem", content:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque ea ex maxime blanditiis soluta impedit voluptatem assumenda a, pariatur necessitatibus culpa iure unde perspiciatis reprehenderit! Esse suscipit eos provident expedita."},
+      {title:"Lorem", content:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque ea ex maxime blanditiis soluta impedit voluptatem assumenda a, pariatur necessitatibus culpa iure unde perspiciatis reprehenderit! Esse suscipit eos provident expedita."},
+      {title:"Lorem", content:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque ea ex maxime blanditiis soluta impedit voluptatem assumenda a, pariatur necessitatibus culpa iure unde perspiciatis reprehenderit! Esse suscipit eos provident expedita."}
       ]
   }),
   mounted(){
