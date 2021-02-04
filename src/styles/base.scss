@@ -60,7 +60,7 @@ $bluish: #4b6deb;
   
   .img__block{
     width: 25%;
-    border-right: 1px solid rgba(195, 233, 255);
+    border-right: 1px solid rgba(207, 207, 207);
     margin-right: 15px;
   }
   .informaiton__block{
@@ -97,7 +97,9 @@ $bluish: #4b6deb;
   &:hover{
     border-bottom: 1px lightblue solid;
     box-shadow: 0 3px 7px -1px rgba(195, 233, 255);
-    
+    .img__block{
+      border-right: 1px solid rgba(195, 233, 255);
+    }
   }
 }
 
