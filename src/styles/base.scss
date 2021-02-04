@@ -46,7 +46,7 @@ $bluish: #4b6deb;
 
 .post__card{
   display: flex;
-  flex-direction: inherit;
+  
   margin: 1rem auto;
   box-shadow: 0 3px 7px -1px rgba(#000, .1);
   margin-bottom: 1.6%;
@@ -56,17 +56,18 @@ $bluish: #4b6deb;
   border-radius: 5px;
   overflow: hidden;
   z-index: 0;
-  height: 180px;
+  height: 200px;
+  
   .img__block{
-    margin-right: 200px;
+    width: 25%;
+    border-right: 1px solid rgba(195, 233, 255);
+    margin-right: 15px;
   }
-  .information__block{
-    
+  .informaiton__block{
+    width: inherit;
     padding: 1rem;
     background: white;
     position: relative;
-    display: flex;
-    flex-direction: column;
     justify-content: space-between;
     z-index: 1;
     h1,
@@ -85,8 +86,11 @@ $bluish: #4b6deb;
       color: grey;
       margin-top: 5px;
     }
-    button{
-      top:100%;
+    .post__footer{
+      
+      position: absolute;
+      bottom: 5px;
+      right: 10%;
     }
   }
 
