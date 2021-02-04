@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import CommentsComponent from "@/services/CommentsComponent"
+import CommentsComponent from "../components/CommentsComponent"
 export default {
     name: 'PostCard',
     props:{
