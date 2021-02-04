@@ -5,7 +5,7 @@ import Home from '@/views/Home.vue';
 
 const routes = [
   {
-    path: '/post',
+    path: '/post/:id',
     name: 'Post',
     component: Post,
   },

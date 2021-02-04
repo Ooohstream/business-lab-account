@@ -31,6 +31,7 @@
 
 <script>
 import CommentsComponent from "@/components/CommentsComponent"
+import {mapGetters, mapActions} from "vuex";
 export default {
     name: "Post",
     props:{
@@ -59,8 +60,21 @@ export default {
             default: ''
         }
     },
+    mounted(){
+        this.fetchPost(this.$route.params.id)
+    },
     components:{
         CommentsComponent
+    },
+    computed:{
+        ...mapGetters({
+            post: "post"
+        })
+    },
+    methods:{
+        ...mapActions({
+            fetchPost: "fetchPost"
+        })
     }
 }
 </script>

@@ -12,7 +12,7 @@
             </div>
             <div class="post__footer">
                 
-                <button class="btn btn-primary" id="about"> Подробнее  </button>
+                <button class="btn btn-primary" id="about" v-on:click="goto(id)"> Подробнее  </button>
             </div>
         </div>
     </div>
@@ -41,7 +41,16 @@ export default {
         postComments:{
             type: Array,
             default: () => []
+        },
+        id: {
+            type: String,
+            default: '0'
         }
     },
+    methods:{
+        goto(id){
+            window.location.href = "/post/"+id
+        }
+    }
 };
 </script>
