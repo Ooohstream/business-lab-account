@@ -1,13 +1,45 @@
 <template>
-  <router-link to="/register">Register</router-link>
-  <router-link to="/login">Login</router-link>
-  <router-view></router-view>
+  <div class="main">
+    <nav
+      :style="{
+        visibility: $route.path === '/register' ? 'hidden' : 'visible',
+      }"
+    >
+      <ul
+        :style="{ visibility: $route.path === '/login' ? 'hidden' : 'visible' }"
+      >
+        <li>
+          <router-link to="/user:25"
+            ><img
+              src="@/assets/icons/profile-pic.png"
+              style="background: white"
+          /></router-link>
+        </li>
+        <li>
+          <router-link to="homepage"
+            ><img src="@/assets/icons/homepage.png"
+          /></router-link>
+        </li>
+        <li>
+          <router-link to="#"
+            ><img src="@/assets/icons/board.png"
+          /></router-link>
+        </li>
+      </ul>
+    </nav>
+    <router-view />
+  </div>
 </template>
 
 
 <script>
 export default {
-  name: "mainwrapper",
+  name: "App",
+  computed: {
+    loggedIn() {
+      return this.$store.getters.loggedIn;
+    },
+  },
 };
 </script>
 
@@ -33,5 +65,38 @@ body {
   -moz-osx-font-smoothing: grayscale;
   width: 100%;
   height: 100%;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 60px 9fr;
+  grid-template-rows: 1fr;
+  widows: 100%;
+  height: 100%;
+
+  nav {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    background: $bluish;
+
+    ul {
+      list-style: none;
+
+      img {
+        height: 45px;
+        margin-top: 2em;
+        border-radius: 2em;
+      }
+    }
+  }
+}
+
+.none {
+  visibility: hidden;
 }
 </style>

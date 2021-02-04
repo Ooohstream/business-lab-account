@@ -22,7 +22,7 @@ export default createStore({
 
     async login(ctx, credentials) {
       axios
-        .post('http://192.168.1.65:8888/login/', {
+        .post('http://192.168.1.65:8888/kek/', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           data: {
@@ -60,6 +60,7 @@ export default createStore({
         })
         .then(response => {
           console.log(response);
+          response.getItem;
         })
         .catch(error => console.log(error));
     },
