@@ -2,7 +2,7 @@
     <div class="container">
         <div class="content__head">
             <div class="img__block">
-                <img :src="imageUrl">
+                <img src="@/assets/logo.png">
             </div>
             <div class="content__header">
                 <h1>Lorem ipsum{{title}}</h1>
@@ -92,8 +92,8 @@ export default {
     justify-content: space-between;
     .img__block{
         width: 30%;
-        background: grey;
-        margin-right: 10px;
+        margin-top: 84px;
+        margin-left: 30px
     }
     .content__head{
         display: flex;
@@ -102,7 +102,7 @@ export default {
         .content__header{
             position: absolute;
             top: 205px;
-            left: 41%;
+            left: 35%;
         }
     }
     .post__content{
