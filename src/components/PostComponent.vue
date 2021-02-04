@@ -5,12 +5,16 @@
             {{title}}
         </div>
         <div class="post__details">
-            {{message}}
+            {{content}}
         </div>
+    </div>
+    <div class="post__comments">
+        <CommentsComponent :postComments="postComments"/>
     </div>
 </template>
 
 <script>
+import CommentsComponent from "@/services/CommentsComponent"
 export default {
     name: 'PostCard',
     props:{
@@ -18,14 +22,25 @@ export default {
             type: String,
             default: ''
         },
-        message:{
+        content:{
             type: String,
             default: ''
         },
         imageUrl:{
             type: String,
             default: ''
+        },
+        likeNumber:{
+            type: Number,
+            default: 0
+        },
+        postComments:{
+            type: Array,
+            default: () => []
         }
+    },
+    components:{
+        CommentsComponent
     }
 }
 </script>
