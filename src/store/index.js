@@ -16,9 +16,13 @@ export default createStore({
     },
   },
   actions: {
+    //ассинхронные, вызывают мутации state-ов
+
+    //АВТОРИЗАЦИЯ
+
     async login(ctx, credentials) {
       axios
-        .post('http://192.168.1.65:8888/kek/', {
+        .post('http://192.168.1.65:8888/login/', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           data: {
@@ -33,9 +37,32 @@ export default createStore({
         })
         .catch(error => console.log(error));
     },
+
+    //LOGOUT
+
     async logout(ctx) {
       localStorage.removeItem('access_token');
       ctx.commit('logout');
+    },
+
+    //РЕГИСТРАЦИЯ
+
+    async register(ctx, credentials) {
+      axios
+        .post('http://192.168.1.65:8888/register/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          data: {
+            username: credentials.username,
+            password: credentials.password,
+            email: credentials.email,
+          },
+        })
+        .then(response => {
+          console.log(response);
+          ctx.commit('register', response);
+        })
+        .catch(error => console.log(error));
     },
   },
   getters: {
