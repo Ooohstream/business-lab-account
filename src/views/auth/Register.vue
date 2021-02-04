@@ -1,6 +1,6 @@
 <template>
   <div class="register">
-    <form>
+    <form @submit.prevent="register">
       <label>Email</label>
       <input type="email" class="input-text" v-model="email" />
       <label>Password</label>
@@ -26,13 +26,23 @@ export default {
   },
   methods: {
     register() {
+      if (this.username.lenght < 6) {
+        alert("Минимальная длина имени пользователя - 6 символов");
+        return;
+      }
+
+      if (this.password.length < 6) {
+        alert("Минимальная длина пароля - 6 символов");
+        return;
+      }
+
       if (this.password == this.repeat_password) {
         this.$store.dispatch("register", {
           email: this.email,
           password: this.password,
           username: this.username,
         });
-      }
+      } else alert("Пароли должны совпадать!");
     },
   },
 };

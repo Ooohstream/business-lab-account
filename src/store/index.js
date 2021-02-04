@@ -60,7 +60,6 @@ export default createStore({
         })
         .then(response => {
           console.log(response);
-          ctx.commit('register', response);
         })
         .catch(error => console.log(error));
     },
