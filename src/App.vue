@@ -8,7 +8,7 @@
           <input
             type="text"
             class="input-text"
-            placeholder="Телефон или email"
+            placeholder="Email"
             v-model="username"
           />
           <input
@@ -34,6 +34,8 @@
       </form>
     </section>
   </div>
+  <router-link to="/register">Register</router-link>
+  <router-view></router-view>
 </template>
 
 
