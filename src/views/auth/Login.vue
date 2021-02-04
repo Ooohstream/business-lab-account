@@ -63,7 +63,7 @@ export default {
 };
 </script>
 
-<style lang='scss'>
+<style lang='scss' scoped>
 .login {
   display: grid;
   grid-template-columns: 0.5fr 1fr;
