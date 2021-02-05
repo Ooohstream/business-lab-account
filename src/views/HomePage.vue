@@ -1,10 +1,36 @@
+<!--Created by sigarachi-->
 <template>
-  <div>Hey</div>
+  <EntLst />
 </template>
 
+
 <script>
-export default {};
+import EntLst from "@/components/EntLst.vue";
+import { mapGetters, mapActions } from "vuex";
+
+export default {
+  name: "Home",
+  components: {
+    EntLst,
+  },
+  data: () => ({}),
+  mounted() {
+    const token = localStorage.getItem("access_token");
+    this.fetchPosts(token);
+    console.log(this.$store);
+  },
+  computed: {
+    ...mapGetters({
+      ents: "ents",
+    }),
+  },
+  methods: {
+    ...mapActions({
+      fetchPosts: "fetchPosts",
+    }),
+  },
+};
 </script>
 
-<style>
+<style lang="scss">
 </style>
