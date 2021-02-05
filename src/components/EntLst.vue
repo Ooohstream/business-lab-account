@@ -12,6 +12,12 @@ export default {
     name:"EntLst",
     components:{
         EntCard
+    },
+    props:{
+        ents:{
+            type: Array,
+            default: ()=>[]
+        }
     }
 }
 </script>

@@ -1,34 +1,34 @@
 <!--Created by sigarachi-->
 <template>
-    <PostLst :posts="posts"/>
+    <EntLst :ents="ents"/>
 </template>
 
 
 <script>
-import PostLst from "@/components/PostLst";
+import EntLst from "@/components/EntLst";
 import {mapGetters, mapActions} from "vuex";
 
 export default {
   name: "Home",
   components:{
-    PostLst
+    EntLst
   },
   data: () => ({
     
   }),
   mounted(){
     const token = localStorage.getItem('access_token')
-    this.fetchPosts(token)
+    this.fetchEnts(token)
     console.log(this.$store)
   },
   computed:{
     ...mapGetters({
-      posts: "posts",
+      ents: "ents",
     })
   },
   methods:{
     ...mapActions({
-      fetchPosts: "fetchPosts",
+      fetchEnts: "fetchEnts",
     })
   }
 };
