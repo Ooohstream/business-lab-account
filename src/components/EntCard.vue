@@ -88,7 +88,6 @@ export default {
     }
     h1 {
       line-height: 1;
-
       font-size: 1.7rem;
     }
     h2 {
