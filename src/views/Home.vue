@@ -1,8 +1,6 @@
 <!--Created by sigarachi-->
 <template>
-   
-    <PostLst :posts="testPost"/>
-   
+    <PostLst :posts="posts"/>
 </template>
 
 
@@ -16,14 +14,11 @@ export default {
     PostLst
   },
   data: () => ({
-    testPost:[
-      {title:"Lorem", content:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque ea ex maxime blanditiis soluta impedit voluptatem assumenda a, pariatur necessitatibus culpa iure unde perspiciatis reprehenderit! Esse suscipit eos provident expedita."},
-      {title:"Lorem", content:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque ea ex maxime blanditiis soluta impedit voluptatem assumenda a, pariatur necessitatibus culpa iure unde perspiciatis reprehenderit! Esse suscipit eos provident expedita."},
-      {title:"Lorem", content:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque ea ex maxime blanditiis soluta impedit voluptatem assumenda a, pariatur necessitatibus culpa iure unde perspiciatis reprehenderit! Esse suscipit eos provident expedita."}
-      ]
+    
   }),
   mounted(){
-    this.fetchPosts()
+    const token = localStorage.getItem('access_token')
+    this.fetchPosts(token)
     console.log(this.$store)
   },
   computed:{

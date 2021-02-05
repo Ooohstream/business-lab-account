@@ -1,4 +1,4 @@
-import {getPost, getPosts} from "@/services/posts.service"
+import {getPost, takePosts} from "@/services/posts.service"
 
 
 const mutations = {
@@ -24,7 +24,8 @@ const actions = {
     },
     async fetchPosts({commit}, token){
         try{
-            const posts = await getPosts(token)
+            console.log("FetchToken: "+token)
+            const posts = await takePosts(token)
             commit('setPosts', posts)
         }catch(e){
             commit('setPostError', e)

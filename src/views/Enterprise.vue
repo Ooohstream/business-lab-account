@@ -61,7 +61,8 @@
 
 <script>
 import {mapGetters, mapActions} from "vuex";
-const token = localStorage.getItem('token')
+
+const token = localStorage.getItem('access_token')
 
 export default {
     name: 'Enterprise',
@@ -69,9 +70,9 @@ export default {
         stages:{
             type: Array,
             default: ()=>[
-                {state:"completed", name: "Huy", description: "Huy"},
-                {state:"current", name: "Huy", description: "Huy"},
-                {state:"not_active", name: "Huy", description: "Huy"}
+                {state:"completed", name: "1 Point", description: "Smth"},
+                {state:"current", name: "2 Point", description: "Smth"},
+                {state:"not_active", name: "3 Point", description: "Smth"}
             ]
         },
         team:{

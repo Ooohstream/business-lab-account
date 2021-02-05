@@ -59,13 +59,14 @@ $bluish: #4b6deb;
   height: 200px;
   
   .img__block{
-    width: 50%;
+    min-width: 30%;
+    max-width: 30%;
     border-right: 1px solid rgba(207, 207, 207);
     margin-right: 15px;
     img{
-      width: 50%;
+      width: 30%;
       margin-top: 50px;
-      margin-left: 50px;
+      margin-left: 100px;
     }
   }
   .informaiton__block{
@@ -104,7 +105,7 @@ $bluish: #4b6deb;
       display: flex;
       justify-content: space-between;
       #about{
-        margin-left: 550%;
+        margin-left: 450%;
       }
     }
   }

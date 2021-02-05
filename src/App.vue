@@ -7,6 +7,8 @@
 //import PostLst from "@/components/PostLst";
 import {mapGetters, mapActions} from "vuex";
 
+
+
 export default {
   name: "App",
   components:{
@@ -20,7 +22,7 @@ export default {
       ]
   }),
   mounted(){
-    this.fetchPosts()
+    
     console.log(this.$store)
   },
   computed:{
