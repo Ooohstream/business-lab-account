@@ -1,3 +1,4 @@
+<!--Created by sigarachi-->
 <template>
    
     <PostLst :posts="testPost"/>

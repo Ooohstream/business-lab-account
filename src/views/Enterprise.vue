@@ -1,3 +1,4 @@
+<!--Created by sigarachi-->
 <template>
     <div class="container">
         <div class="content__head">
@@ -59,6 +60,9 @@
 </template>
 
 <script>
+import {mapGetters, mapActions} from "vuex";
+const token = localStorage.getItem('token')
+
 export default {
     name: 'Enterprise',
     props:{
@@ -78,7 +82,24 @@ export default {
                 {name: "Tom", status:"Programmer", avatar:"@/assets/logo.png"},
                 {name: "Jack", status:"Designer", avatar:"@/assets/logo.png"}
             ],
+        },
+        id:{
+            type: Number,
+            default: 0
         }
+    },
+    mounted(){
+        this.fetchEnt(this.id,token)
+    },
+    computed:{
+        ...mapGetters({
+            ent: "ent"
+        })
+    },
+    methods:{
+        ...mapActions({
+            fetchEnt: "fetchEnt"
+        })
     }
 }
 </script>
