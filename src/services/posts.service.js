@@ -7,7 +7,7 @@ const getPost = (id, token) =>  request({url: `posts/onepost` , method: 'get', d
 
 const takePosts = async (token) => {
     const config = {headers: {"access_token": `${token}` }, json:true}
-    const getPosts = await axios.get('http://e72547a27d46.ngrok.io:80/api/posts/', config)
+    const getPosts = await axios.get('http://a42f800fa614.ngrok.io:80/api/posts/', config)
     console.log(getPosts)
     return getPosts.data.posts
     

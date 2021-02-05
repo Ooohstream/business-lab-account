@@ -4,14 +4,14 @@
             <h4>Создать инициативу</h4>
         </div>
         <div class="page__container">
-            <form @submit.prevent="create">
+            <form @submit="create" method="post">
                 <div class="title-description">
                     <input type="text" class="input-title" placeholder="Название инициативы" v-model="title" />
                     <br>
-                    <input type="text" class="input-description" placeholder="Описание инициативы" v-model="description" />
+                    <input type="text" class="input-description" placeholder="Описание инициативы" v-model="description" @keyup.enter="create"/>
                 </div>
                 <div class="button-holder">
-                    <button @click="create">Создать</button>
+                    <button type="submit">Создать</button>
                 </div>
             </form>
         </div>
@@ -19,7 +19,8 @@
 </template>
 
 <script>
-import createEnt from "@/services/enterprise.service"
+import axios from "axios"
+
 export default {
     name: 'CreateEnterprise',
     data(){
@@ -29,11 +30,14 @@ export default {
         }
     },
     methods:{
-        create(){
-            this.title = document.getElementsByClassName("input-title")
-            this.description = document.getElementsByClassName("input-description")
-            const token = localStorage.getItem("access_token")
-            createEnt(this.title,this.description,token)
+        create(e){
+            const token = localStorage.getItem('access_token')
+            console.log(this.title)
+            const config = {headers: {"access_token": `${token}` }, body: {"title":`${this.title}`,"content":`${this.description}`}, json:true}
+            axios.post("http://a42f800fa614.ngrok.io:80/api/enterprise/createinterpise", config).then((response)=>{
+                console.log(response)
+            })
+            e.preventDefault();
         }
     }
 }
