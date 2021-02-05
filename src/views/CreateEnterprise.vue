@@ -8,10 +8,11 @@
                 <div class="title-description">
                     <input type="text" class="input-title" placeholder="Название инициативы" v-model="title" />
                     <br>
-                    <input type="text" class="input-description" placeholder="Описание инициативы" v-model="description" @keyup.enter="create"/>
+                    
+                    <textarea v-model="description" placeholder="Описание инициативы" class="input-description" ></textarea>
                 </div>
                 <div class="button-holder">
-                    <button type="submit">Создать</button>
+                    <button type="submit" class="btn btn-primary">Создать</button>
                 </div>
             </form>
         </div>
@@ -45,10 +46,34 @@ export default {
 
 <style lang="scss" scoped>
 .container{
-    text-align: center;
+    text-align: left;
     margin: auto;
+    padding-top:300px;
 }
 .title-description{
     display: block;
+}
+input{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 20px;
+    border-radius: 5px;
+    border: 0.2px solid black;
+    width: 500px;
+    padding-left: 10px;
+    height: 35px;
+    
+}
+
+.input-description{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 0.2px solid black;
+    height: 150px;
+    width: 500px;
+    resize: none;
+    padding-left: 8px;
+    padding-top: 8px;
+    font-size: 10pt;
 }
 </style>
