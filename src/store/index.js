@@ -1,5 +1,4 @@
-import Vuex from 'vuex';
-import Vue from 'vue';
+import { createStore } from 'vuex';
 import post from '@/store/post';
 import ent from '@/store/enterprise';
 import axios from 'axios';

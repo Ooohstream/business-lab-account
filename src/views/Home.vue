@@ -11,7 +11,7 @@ import { mapGetters, mapActions } from "vuex";
 export default {
   name: "Home",
   components: {
-    PostLst,
+    EntLst,
   },
   data: () => ({}),
   mounted() {
