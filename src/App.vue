@@ -33,7 +33,6 @@
 
 <script>
 //import PostLst from "@/components/PostLst";
-import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "App",
@@ -50,16 +49,6 @@ export default {
     userId() {
       return this.$store.getters.getUserId;
     },
-  },
-  computed: {
-    ...mapGetters({
-      posts: "posts",
-    }),
-  },
-  methods: {
-    ...mapActions({
-      fetchPosts: "fetchPosts",
-    }),
   },
 };
 </script>

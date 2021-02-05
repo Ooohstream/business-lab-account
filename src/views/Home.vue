@@ -1,36 +1,34 @@
 <!--Created by sigarachi-->
 <template>
-    <PostLst :posts="posts"/>
+  <EntLst :ents="ents" />
 </template>
 
 
 <script>
-import PostLst from "@/components/PostLst";
-import {mapGetters, mapActions} from "vuex";
+import EntLst from "@/components/EntLst";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "Home",
-  components:{
-    PostLst
+  components: {
+    PostLst,
   },
-  data: () => ({
-    
-  }),
-  mounted(){
-    const token = localStorage.getItem('access_token')
-    this.fetchPosts(token)
-    console.log(this.$store)
+  data: () => ({}),
+  mounted() {
+    const token = localStorage.getItem("access_token");
+    this.fetchPosts(token);
+    console.log(this.$store);
   },
-  computed:{
+  computed: {
     ...mapGetters({
-      posts: "posts",
-    })
+      ents: "ents",
+    }),
   },
-  methods:{
+  methods: {
     ...mapActions({
-      fetchPosts: "fetchPosts",
-    })
-  }
+      fetchEnts: "fetchEnts",
+    }),
+  },
 };
 </script>
 
@@ -47,7 +45,6 @@ body {
   font-family: $font-stack;
   width: 100%;
   height: 100vh;
-  
 }
 #app {
   -webkit-font-smoothing: antialiased;
@@ -55,5 +52,4 @@ body {
   width: 100%;
   height: 100%;
 }
-
 </style>

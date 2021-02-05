@@ -4,8 +4,10 @@ import Register from '../views/auth/Register.vue';
 import Login from '../views/auth/Login.vue';
 import UserProfile from '../views/UserProfile.vue';
 import HomePage from '../views/HomePage.vue';
-
 import store from '../store/index.js';
+import Post from '@/views/Post.vue';
+import Enterprise from '@/views/Enterprise.vue';
+import CreateEnterprise from '@/views/CreateEnterprise.vue';
 
 const routes = [
   {
@@ -40,33 +42,21 @@ const routes = [
       requiresAuth: true,
     },
   },
-// import Login from '../views/Login.vue';
-import Post from '@/views/Post.vue';
-import Home from '@/views/Home.vue';
-import Enterprise from '@/views/Enterprise.vue';
-import CreateEnterprise from '@/views/CreateEnterprise.vue';
-
-const routes = [
   {
     path: '/post/:id',
     name: 'Post',
     component: Post,
   },
   {
-    path: '',
-    name: 'Home',
-    component: Home
-  },
-  {
     path: '/enterprise/:id',
     name: 'Enterprise',
-    component: Enterprise
+    component: Enterprise,
   },
   {
     path: '/createenterprise',
     name: 'Create Enterprise',
-    component: CreateEnterprise
-  }
+    component: CreateEnterprise,
+  },
 ];
 
 const router = createRouter({

@@ -1,6 +1,8 @@
 import Vuex from 'vuex';
+import Vue from 'vue';
 import post from '@/store/post';
 import ent from '@/store/enterprise';
+import axios from 'axios';
 
 const base_url = '78.142.222.201';
 
@@ -90,11 +92,5 @@ export default createStore({
       return state.user_Id;
     },
   },
-  modules: {},
-});
-export default new Vuex.Store({
-  modules: {
-    post,
-    ent,
-  },
+  modules: { post, ent },
 });
