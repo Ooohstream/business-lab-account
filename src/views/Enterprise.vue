@@ -1,6 +1,6 @@
 <!--Created by sigarachi-->
 <template>
-    <div class="landing__page">
+    <div class="landing__page" >
         <div class="container">
         <div class="content__head">
             <div class="img__block">
@@ -56,7 +56,6 @@
             </div>
         </div>
         <br>
-        
     </div>
     <div class="right__navbar">
         <div class="created__at">
@@ -82,6 +81,15 @@
             <div class="join__btn">
                 <button class="btn btn-primary">Присоединиться</button>
             </div>
+            <div class="slider">
+                <input type="radio" value="About" id="About" name="slider" class="slider__component" v-on:change="onCheck" checked="true">
+                <label for="About">About</label>
+                <br>
+                <br>
+                <br>
+                <input type="radio" value="Posts" name="slider" class="slider__component" v-on:change="onCheck">
+                <label for="Post">Post</label>
+            </div>
         </div>
         
     </div>
@@ -92,6 +100,7 @@
 import {mapGetters, mapActions} from "vuex";
 
 const token = localStorage.getItem('access_token')
+let about = true;
 
 export default {
     name: 'Enterprise',
@@ -120,6 +129,10 @@ export default {
         id:{
             type: Number,
             default: 0
+        },
+        posts:{
+            type: Array,
+            default:()=>[]
         }
     },
     mounted(){
@@ -133,7 +146,16 @@ export default {
     methods:{
         ...mapActions({
             fetchEnt: "fetchEnt"
-        })
+        }),
+        onCheck(){
+            if(about){
+                about = false
+            }
+            else{
+                about = true
+            }
+            console.log(about)
+        }
     }
 }
 </script>
@@ -177,6 +199,29 @@ $bcolor: #9de2ff;
             margin-top: 7px;
             font-weight: 50;
             color: gray;
+        }
+    }
+    .slider{
+        margin-top: 20px;
+        display: block;
+        font-size: 14pt;
+        input[type=radio]{
+            opacity: 0;
+            position: absolute;
+            padding-top: 20px;
+        }
+        label{
+            width: 100px;
+            height: 80px;
+        }
+        input[type=radio]:focus + label {
+            
+            background: $bcolor;
+            width: 100px;
+            height: 80px;
+        }
+        .slider__component{
+            margin-bottom: 20px;
         }
     }
 }
