@@ -32,6 +32,9 @@
 <script>
 import CommentsComponent from "@/components/CommentsComponent"
 import {mapGetters, mapActions} from "vuex";
+
+const token = localStorage.getItem('token')
+
 export default {
     name: "Post",
     props:{
@@ -61,7 +64,7 @@ export default {
         }
     },
     mounted(){
-        this.fetchPost(this.$route.params.id)
+        this.fetchPost(this.$route.params.id, token)
     },
     components:{
         CommentsComponent
