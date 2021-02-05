@@ -4,13 +4,13 @@
       <img src="@/assets/icons/profile-pic.png" />
     </div>
     <div class="cell-2">
+      <h1>{{ `${userInfo.firstName} ${userInfo.lastName}` }}</h1>
       <hr />
-      <h1>{{ `${firstName} ${lastName}` }}</h1>
     </div>
     <div class="cell-3">
       <h1>Мои контакты и социальные сети:</h1>
       <hr />
-      <span>Телефон: {{ phoneNumber }}</span>
+      <span>Телефон: {{ userInfo.phoneNumber }}</span>
       <span>Email: hackatom@gmail.com</span>
       <div class="socials">
         <a href="#"><img src="@/assets/icons/vk.png" /></a>
@@ -27,9 +27,11 @@
 export default {
   data() {
     return {
-      firstName: "Василиса",
-      lastName: "Пупкина",
-      phoneNumber: "8915423456",
+      userInfo: {
+        firstName: "Василиса",
+        lastName: "Пупкина",
+        phoneNumber: "8915423456",
+      },
     };
   },
 };
@@ -38,12 +40,9 @@ export default {
 <style lang='scss'>
 .user-profile {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 2fr;
   grid-template-rows: 1fr 1fr;
-  width: 90%;
   height: 100%;
-  overflow: hidden;
-  margin: 0 auto;
 
   hr {
     background: $bluish;
@@ -52,29 +51,25 @@ export default {
   .cell-1 {
     grid-column: 1 / 2;
     grid-row: 1 / 2;
-
     display: flex;
-    align-items: center;
-    justify-content: center;
 
     img {
       height: 250px;
       border: lightblue solid 0.9px;
       border-radius: 10em;
+      margin: auto;
     }
   }
 
   .cell-2 {
     grid-column: 1 / 2;
     grid-row: 2 / 3;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    text-align: center;
 
     hr {
+      margin-top: 1em;
       width: 70%;
-      margin-top: 3em;
-      margin-bottom: 5em;
+      margin: 1em auto;
     }
   }
 
@@ -82,26 +77,17 @@ export default {
     grid-column: 2 / 3;
     grid-row: 1 / 2;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
     h1 {
-      text-align: center;
-      margin: 1em auto;
     }
     hr {
-      width: 70%;
     }
 
     span {
-      margin: 2.5em;
     }
 
     .socials {
       img {
         height: 50px;
-        margin: 5em 1em;
       }
     }
   }
@@ -109,6 +95,7 @@ export default {
   .cell-4 {
     grid-column: 2 / 3;
     grid-row: 2 / 3;
+    background: wheat;
   }
 }
 </style>

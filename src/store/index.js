@@ -2,6 +2,8 @@ import axios from 'axios';
 import { createStore } from 'vuex';
 // import axios from 'axios';
 
+const base_url = '5414aa6148e0';
+
 export default createStore({
   state: {
     access_token: localStorage.getItem('access_token') || null,
@@ -22,16 +24,12 @@ export default createStore({
 
     async login(ctx, credentials) {
       axios
-        .post('http://192.168.1.65:8888/kek/', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          data: {
-            username: credentials.username,
-            password: credentials.password,
-          },
+        .post(`http://${base_url}.ngrok.io/api/auth/login/`, {
+          email: credentials.username,
+          password: credentials.password,
         })
         .then(response => {
-          const access_token = response.data.token;
+          const access_token = response.data.access_token;
           localStorage.setItem('access_token', access_token);
           ctx.commit('login', access_token);
         })
@@ -49,18 +47,13 @@ export default createStore({
 
     async register(ctx, credentials) {
       axios
-        .post('http://192.168.1.65:8888/register/', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          data: {
-            username: credentials.username,
-            password: credentials.password,
-            email: credentials.email,
-          },
+        .post(`http://${base_url}.ngrok.io/api/auth/register/`, {
+          email: credentials.email,
+          password: credentials.password,
+          login: credentials.username,
         })
         .then(response => {
           console.log(response);
-          response.getItem;
         })
         .catch(error => console.log(error));
     },

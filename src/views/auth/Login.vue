@@ -58,7 +58,7 @@ export default {
         username: this.username,
         password: this.password,
       });
-      this.$router.push({ path: "/" });
+      this.$router.push({ path: "/homepage" });
     },
     logout() {
       this.$store.dispatch("logout");
