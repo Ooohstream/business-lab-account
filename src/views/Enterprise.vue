@@ -1,6 +1,7 @@
 <!--Created by sigarachi-->
 <template>
-    <div class="container">
+    <div class="landing__page">
+        <div class="container">
         <div class="content__head">
             <div class="img__block">
                 <img src="@/assets/logo.png">
@@ -57,6 +58,34 @@
         <br>
         
     </div>
+    <div class="right__navbar">
+        <div class="created__at">
+            <h4>Дата создания</h4>
+            <p>{{createdAt}}</p>
+        </div>
+        <div class="our__challengers">
+            <h4>Уже участвуют {{team.length}}</h4>
+            <div class="lst__item" v-for="(mate,key) in team.slice(0,3)" :key="key">
+                <div class="mate__avatar">
+                            <img src="@/assets/logo.png">
+                        </div>
+                        <div class="mate__about">
+                            <div class="name">
+                                <h4>{{mate.name}}</h4>
+                            </div>
+                            <div class="status">
+                                {{mate.status}}
+                            </div>
+                        </div>
+                </div>
+            </div>
+            <div class="join__btn">
+                <button class="btn btn-primary">Присоединиться</button>
+            </div>
+        </div>
+        
+    </div>
+    
 </template>
 
 <script>
@@ -83,6 +112,10 @@ export default {
                 {name: "Tom", status:"Programmer", avatar:"@/assets/logo.png"},
                 {name: "Jack", status:"Designer", avatar:"@/assets/logo.png"}
             ],
+        },
+        createdAt: {
+            type: String,
+            default: "22.03.1998"
         },
         id:{
             type: Number,
@@ -111,7 +144,45 @@ $bluish: #4b6deb;
 $grayish:  rgb(237, 237, 237);
 $bcolor: #9de2ff;
 
+
+.landing__page{
+    display: flex;
+    .right__navbar{
+        right:10px;
+        margin-right: 70px;
+        margin-top: 292px;
+        width: 20%;
+        height: 400px;
+        .lst__item{
+            margin-top: 30px;
+            display: flex;
+            .mate__avatar img{
+                width: 70px;
+                height: 70px;
+            }
+            .mate__about{
+                margin-top: 15px;
+                margin-left: 30px;
+            }
+        }
+        .join__btn{
+            margin-top: 20px;
+        }
+        
+    }
+
+    .created__at{
+        margin-bottom: 15px;
+        p{
+            margin-top: 7px;
+            font-weight: 50;
+            color: gray;
+        }
+    }
+}
+
 .container {
+
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0 auto;
     padding-top: 70px;
@@ -131,8 +202,9 @@ $bcolor: #9de2ff;
         border-bottom: 0.3px solid gray;
         .content__header{
             position: absolute;
-            top: 205px;
-            left: 35%;
+            top: 150px;
+            left: 22%;
+            font-size: 20pt;
         }
     }
     .post__content{
