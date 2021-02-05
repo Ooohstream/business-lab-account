@@ -4,6 +4,9 @@
       <EntCard :title="ent.title" :content="ent.content" :id="ent._id" />
     </div>
   </div>
+  <div v-else style="color: red">
+    <h1>No conten</h1>
+  </div>
 </template>
 
 <script>
@@ -12,6 +15,12 @@ export default {
   name: "EntLst",
   components: {
     EntCard,
+  },
+  props: {
+    ents: {
+      type: Array,
+      default: () => [],
+    },
   },
 };
 </script>

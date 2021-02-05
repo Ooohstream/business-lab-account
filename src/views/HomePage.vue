@@ -16,7 +16,7 @@ export default {
   data: () => ({}),
   mounted() {
     const token = localStorage.getItem("access_token");
-    this.fetchPosts(token);
+    this.fetchEnts(token);
     console.log(this.$store);
   },
   computed: {
@@ -26,7 +26,7 @@ export default {
   },
   methods: {
     ...mapActions({
-      fetchPosts: "fetchPosts",
+      fetchEnts: "fetchEnts",
     }),
   },
 };

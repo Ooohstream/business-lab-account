@@ -90,6 +90,10 @@ export default createStore({
     getUserId(state) {
       return state.user_Id;
     },
+
+    getUserData(state) {
+      return state.userData;
+    },
   },
   modules: { post, ent },
 });

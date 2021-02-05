@@ -36,6 +36,11 @@
 
 export default {
   name: "App",
+  data() {
+    return {
+      userId: this.$store.getters.getUserId,
+    };
+  },
   methods: {
     logout() {
       this.$store.dispatch("logout");
@@ -45,9 +50,6 @@ export default {
   computed: {
     loggedIn() {
       return this.$store.getters.loggedIn;
-    },
-    userId() {
-      return this.$store.getters.getUserId;
     },
   },
 };

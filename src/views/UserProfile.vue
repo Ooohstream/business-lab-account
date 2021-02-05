@@ -26,7 +26,14 @@ export default {
     ContentBoxTwo,
     Footer,
   },
-  mounted() {
+
+  data() {
+    return {
+      userData: this.$store.getters.getUserData,
+    };
+  },
+
+  beforeMount() {
     this.$store.dispatch("fetchUserData", this.$route.params.userId);
   },
 };
