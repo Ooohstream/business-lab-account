@@ -1,30 +1,30 @@
-import {getPost, getPosts} from "@/services/posts.service"
+import {getEnt, getEnts} from "@/services/posts.service"
 
 
 const mutations = {
-    setPost(state, post) {
-        state.post = post
+    setPost(state, ent) {
+        state.ent = ent
     },
-    setPosts(state, posts) {
-        state.posts = posts
+    setPosts(state, ent) {
+        state.ent = ent
     },
     setPostError(state, e) {
-        state.postError = e
+        state.entError = e
     }
 }
 
 const actions = {
-    async fetchPost({commit}, id, token){
+    async fetchEnt({commit}, id, token){
         try{
-            const post = await getPost(id, token)
+            const ent = await getEnt(id, token)
             commit('setPost', post)
         }catch(e){
             commit('setPostError', e)
         }
     },
-    async fetchPosts({commit}, token){
+    async fetchEnts({commit}){
         try{
-            const posts = await getPosts(token)
+            const posts = await getPosts()
             commit('setPosts', posts)
         }catch(e){
             commit('setPostError', e)
