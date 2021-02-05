@@ -35,7 +35,7 @@ export default {
             const token = localStorage.getItem('access_token')
             console.log(this.title)
             const config = {headers: {"access_token": `${token}` }, body: {"title":`${this.title}`,"content":`${this.description}`}, json:true}
-            axios.post("http://a42f800fa614.ngrok.io:80/api/enterprise/createinterpise", config).then((response)=>{
+            axios.post("http://78.142.222.201:80/api/enterprise/createinterpise", config).then((response)=>{
                 console.log(response)
             })
             e.preventDefault();

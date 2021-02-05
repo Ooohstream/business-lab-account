@@ -7,7 +7,7 @@ const  getEnts = (token) => request({url: `entrerprise/` , method: 'get', header
 
 async function createEnt (title,description,token){
     const config = {headers: {"access_token": `${token}` }, body: {"title":`${title}`,"content":`${description}`}, json:true}
-    const sendEnt = await axios.post("http://a42f800fa614.ngrok.io:80/api/enterprise/createinterpise", config).then(response=>{
+    const sendEnt = await axios.post("http://78.142.222.201:80/api/enterprise/createinterpise", config).then(response=>{
         console.log(response)
     })
     console.log(sendEnt)
