@@ -3,14 +3,14 @@
     <nav v-if="$route.name != 'Login'">
       <ul>
         <li>
-          <router-link to="/user:25"
+          <router-link :to="{ name: 'UserProfile', params: { userId: userId } }"
             ><img
               src="@/assets/icons/profile-pic.png"
               style="background: white"
           /></router-link>
         </li>
         <li>
-          <router-link to="homepage"
+          <router-link to="/homepage"
             ><img src="@/assets/icons/homepage.png"
           /></router-link>
         </li>
@@ -18,6 +18,11 @@
           <router-link to="#"
             ><img src="@/assets/icons/board.png"
           /></router-link>
+        </li>
+        <li class="exit">
+          <a @click="logout"
+            ><img class="exit" src="@/assets/icons/exit.png"
+          /></a>
         </li>
       </ul>
     </nav>
@@ -29,9 +34,18 @@
 <script>
 export default {
   name: "App",
+  methods: {
+    logout() {
+      this.$store.dispatch("logout");
+      this.$router.push("/login");
+    },
+  },
   computed: {
     loggedIn() {
       return this.$store.getters.loggedIn;
+    },
+    userId() {
+      return this.$store.getters.getUserId;
     },
   },
 };
@@ -80,11 +94,20 @@ body {
 
     ul {
       list-style: none;
+      display: flex;
+      flex-direction: column;
 
       img {
         height: 45px;
         margin-top: 2em;
         border-radius: 2em;
+      }
+
+      li.exit {
+        margin-top: auto;
+      }
+      img.exit {
+        border-radius: 0;
       }
     }
   }

@@ -32,8 +32,6 @@
             >Регистрация</a
           >
           <modal v-show="isModalVisible" @close="closeRegister" />
-
-          <!-- <a class="btn btn-danger-outline" @click="logout">Logout--test</a> -->
         </div>
       </form>
     </section>
@@ -59,9 +57,6 @@ export default {
         password: this.password,
       });
       this.$router.push({ path: "/homepage" });
-    },
-    logout() {
-      this.$store.dispatch("logout");
     },
 
     openRegister() {

@@ -1,38 +1,33 @@
 <template>
   <div class="user-profile">
-    <div class="cell-1">
-      <img src="@/assets/icons/profile-pic.png" />
-    </div>
-    <div class="cell-2">
-      <h1>{{ `${userInfo.firstName} ${userInfo.lastName}` }}</h1>
-      <hr />
-    </div>
-    <div class="cell-3">
-      <h1>Мои контакты и социальные сети:</h1>
-      <hr />
-      <span>Телефон: {{ userInfo.phoneNumber }}</span>
-      <span>Email: hackatom@gmail.com</span>
-      <div class="socials">
-        <a href="#"><img src="@/assets/icons/vk.png" /></a>
-        <a href="#"><img src="@/assets/icons/facebook.png" /></a>
-        <a href="#"><img src="@/assets/icons/twitter.png" /></a>
-        <a href="#"><img src="@/assets/icons/instagram.png" /></a>
-      </div>
-    </div>
-    <div class="cell-4"></div>
+    <header><ProgressBar /></header>
+    <MainContent />
+    <About />
+    <ContentBoxOne />
+    <ContentBoxTwo />
+    <Footer />
   </div>
 </template>
 
 <script>
+import ProgressBar from "@/components/UserProfile/ProgressBar.vue";
+import MainContent from "@/components/UserProfile/MainContent.vue";
+import About from "@/components/UserProfile/About.vue";
+import ContentBoxOne from "@/components/UserProfile/ContentBoxOne.vue";
+import ContentBoxTwo from "@/components/UserProfile/ContentBoxTwo.vue";
+import Footer from "@/components/UserProfile/Footer.vue";
+
 export default {
-  data() {
-    return {
-      userInfo: {
-        firstName: "Василиса",
-        lastName: "Пупкина",
-        phoneNumber: "8915423456",
-      },
-    };
+  components: {
+    ProgressBar,
+    MainContent,
+    About,
+    ContentBoxOne,
+    ContentBoxTwo,
+    Footer,
+  },
+  mounted() {
+    this.$store.dispatch("fetchUserData", this.$route.params.userId);
   },
 };
 </script>
@@ -40,62 +35,164 @@ export default {
 <style lang='scss'>
 .user-profile {
   display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-template-rows: 1fr 1fr;
-  height: 100%;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 0.1fr 3fr 3fr 0.5fr;
+  grid-gap: 1em;
+  height: 95vh;
+  width: 95vw;
+  margin: auto;
 
-  hr {
-    background: $bluish;
+  header,
+  div,
+  footer {
+    border: lavender solid;
   }
 
-  .cell-1 {
-    grid-column: 1 / 2;
+  header {
+    grid-column: 1 / 4;
     grid-row: 1 / 2;
-    display: flex;
+  }
+
+  div.main-content {
+    grid-column: 1 / 2;
+    grid-row: 2 / 4;
+    font-size: 100%;
+    font-weight: 600;
 
     img {
-      height: 250px;
-      border: lightblue solid 0.9px;
+      display: block;
+      width: 300px;
       border-radius: 10em;
-      margin: auto;
+      margin: 2em auto;
     }
-  }
-
-  .cell-2 {
-    grid-column: 1 / 2;
-    grid-row: 2 / 3;
-    text-align: center;
-
-    hr {
-      margin-top: 1em;
-      width: 70%;
-      margin: 1em auto;
-    }
-  }
-
-  .cell-3 {
-    grid-column: 2 / 3;
-    grid-row: 1 / 2;
 
     h1 {
-    }
-    hr {
+      text-align: center;
+      word-spacing: 0.5rem;
+      margin-top: 0.5em;
     }
 
-    span {
+    hr {
+      width: 50%;
+      margin: 1.5em auto;
+    }
+
+    p {
+      margin-top: 1em;
+      text-align: center;
     }
 
     .socials {
-      img {
-        height: 50px;
+      border: none;
+      display: flex;
+
+      a {
+        margin: 0 auto;
+
+        img {
+          width: 30px;
+        }
       }
     }
   }
 
-  .cell-4 {
-    grid-column: 2 / 3;
+  div.about {
+    grid-column: 2 / 4;
     grid-row: 2 / 3;
-    background: wheat;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+
+    h2 {
+      text-align: center;
+    }
+
+    hr {
+      width: 50%;
+      margin: 1em auto;
+    }
+
+    .education {
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+      border: none;
+
+      .center {
+        border: none;
+        display: flex;
+        justify-content: center;
+        margin-top: auto;
+
+        ul {
+          list-style: none;
+          font-size: 1.1rem;
+
+          li {
+            text-align: center;
+            margin-top: 1em;
+          }
+        }
+      }
+    }
+
+    .work {
+      grid-column: 2 / 3;
+      grid-row: 1 / 2;
+      border: none;
+
+      .center {
+        border: none;
+        display: flex;
+        justify-content: center;
+        margin-top: auto;
+
+        ul {
+          list-style: none;
+          font-size: 1.1rem;
+
+          li {
+            text-align: center;
+            margin-top: 1em;
+          }
+        }
+      }
+    }
+  }
+
+  div.content-box-1 {
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+
+    font-size: 100%;
+    font-weight: 600;
+    padding: 1em;
+
+    h2 {
+      margin: 0.1em;
+    }
+  }
+
+  div.content-box-2 {
+    grid-column: 3 / 4;
+    grid-row: 3 / 4;
+    overflow: auto;
+
+    ul {
+      padding: 0.3em;
+      font-size: 1.5rem;
+      li {
+        display: block;
+        border: lightskyblue solid 2px;
+        margin: 0.2em;
+        padding: 0.3em;
+      }
+    }
+  }
+
+  footer {
+    grid-column: 1 / 4;
+    grid-row: 4 / 5;
   }
 }
 </style>
