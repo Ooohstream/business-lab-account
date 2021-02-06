@@ -14,7 +14,7 @@ async function createEnt (title,description,token){
 
 async function getEnts (token){
     const config = {headers: {"access_token": `${token}` }, json:true}
-    const takeEnts = await axios.get("http://78.142.222.201:80/api/enterprise/", config).then(response=>{
+    const takeEnts = await axios.get("http://78.142.222.201:80/api/allinterprises/", config).then(response=>{
         console.log(response)
     })
     console.log(takeEnts)
