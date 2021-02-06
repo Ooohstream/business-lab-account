@@ -8,7 +8,7 @@
         </div>
         <div class="content__header">
           <h4>{{ ent.title }}</h4>
-          <h3>{{ ent.author }}</h3>
+          <h3><a href="http://78.142.222.201:80/user/{{ ent.author }}">Автор</a></h3>
         </div>
       </div>
       <div class="post__content">
@@ -125,6 +125,9 @@ export default {
   props: {
     ent:{
       type: Object
+    },
+    teamData:{
+      type: Array
     }
   },
   
