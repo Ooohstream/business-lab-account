@@ -3,7 +3,7 @@
     <div class="img__block">
       <img src="@/assets/logo.png" />
     </div>
-    <div class="informaiton__block">
+    <div class="informaiton__block" style="padding-left:500px;">
       <div class="post__header">
         <h1>{{ title }}</h1>
       </div>
@@ -55,3 +55,9 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+.information__block{
+  padding-left:100px;
+}
+</style>
