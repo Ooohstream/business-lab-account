@@ -1,6 +1,6 @@
 <!--Created by sigarachi-->
 <template>
-  <EntLst />
+  <EntLst :ents="ents"/>
 </template>
 
 

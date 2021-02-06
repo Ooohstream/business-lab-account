@@ -22,10 +22,10 @@ async function getEnts(token) {
   console.log('TOKEN '+ token)
   const takeEnts = await axios
     .get('http://78.142.222.201:80/api/enterprise/allinterpises', config)
-    .then(response => {
-      console.log(response);
-    });
-  console.log(takeEnts);
+    
+  console.log(takeEnts.data);
+  return takeEnts.data
+  
 }
 
 async function getEnt(id, token) {
