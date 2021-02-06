@@ -5,7 +5,9 @@
       <li>
         <div v-for="(post, index) in posts" :key="index" class="containerm">
           <div class="message-body">
-            <p>1</p>
+            <a :href="'http://192.168.1.65/post/?id=' + post"
+              >Перейти к активности</a
+            >
           </div>
         </div>
       </li>
@@ -52,5 +54,19 @@ div {
 
 h2 {
   margin: 0.5em;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+ul {
+  display: block;
+  width: 500px;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
 </style>
