@@ -1,4 +1,4 @@
-import { getPost, takePosts } from '@/services/posts.service';
+import { getPost, takePosts, takePostsfromEnt } from '@/services/posts.service';
 
 const mutations = {
   setPost(state, post) {
@@ -30,6 +30,14 @@ const actions = {
       commit('setPostError', e);
     }
   },
+  async fetchEntPosts({commit}, token, id){
+    try{
+      const posts = await takePostsfromEnt(token, id)
+      commit('setPosts', posts);
+    }catch(e){
+      commit('setPostError', e);
+    }
+  }
 };
 
 const getters = {

@@ -21,4 +21,12 @@ const takePosts = async token => {
   return getPosts.data.posts;
 };
 
-export { getPost, takePosts };
+const takePostsfromEnt = async (token, id) => {
+  const config = {body:{access_token: `${token}`, 'interprise_id': `${id}`}, json: true}
+  const takeP = await axios.post(`http://78.142.222.201:${PORT}/api/posts/getfroment`, config)
+
+  console.log(takeP);
+  return takeP.data;
+}
+
+export { getPost, takePosts, takePostsfromEnt };

@@ -26,7 +26,7 @@
               <div class="completed">
                 <div class="pre_line"></div>
                 <div class="point">
-                  <div class="stage1">
+                  <div class="stage1 stage__name">
                     <h4>{{ ent.stage1 }}</h4>
                   </div>
                 </div>
@@ -37,7 +37,7 @@
               <div class="completed">
                 <div class="pre_line"></div>
                 <div class="point">
-                  <div class="stage2">
+                  <div class="stage2 stage__name">
                     <h4>{{ ent.stage2 }}</h4>
                   </div>
                 </div>
@@ -48,7 +48,7 @@
               <div class="completed">
                 <div class="pre_line"></div>
                 <div class="point">
-                  <div class="stage3">
+                  <div class="stage3 stage__name">
                     <h4>{{ ent.stage3 }}</h4>
                   </div>
                 </div>
@@ -59,7 +59,7 @@
               <div class="completed">
                 <div class="pre_line"></div>
                 <div class="point">
-                  <div class="stage4">
+                  <div class="stage4 stage__name">
                     <h4>{{ ent.stage4 }}</h4>
                   </div>
                 </div>
@@ -70,7 +70,7 @@
               <div class="completed">
                 <div class="pre_line"></div>
                 <div class="point">
-                  <div class="stage5">
+                  <div class="stage5 stage__name">
                     <h4>{{ ent.stage5 }}</h4>
                   </div>
                 </div>
@@ -100,7 +100,7 @@
           </div>
           <div class="posts">
             <h4>Посты</h4>
-            <PostLst :posts="ent.posts" />
+            <PostContainer :postId = "ent._id" />
           </div>
         </div>
       </div>
@@ -109,7 +109,7 @@
     <div class="right__navbar">
       <div class="created__at">
         <h4>Дата создания</h4>
-        <p>{{ ent.createdAt }}</p>
+        <p>{{ ent.date }}</p>
       </div>
       <div class="our__challengers">
         <h4>Уже участвуют {{ ent.team.length }}</h4>
@@ -137,29 +137,6 @@
       <div class="join__btn">
         <button class="btn btn-primary" v-on:click="join">Присоединиться</button>
       </div>
-      <div class="slider">
-        <input
-          type="radio"
-          value="About"
-          id="About"
-          name="slider"
-          class="slider__component"
-          v-on:change="onCheck"
-          checked="true"
-        />
-        <label for="About">About</label>
-        <br />
-        <br />
-        <br />
-        <input
-          type="radio"
-          value="Posts"
-          name="slider"
-          class="slider__component"
-          v-on:change="onCheck"
-        />
-        <label for="Post">Post</label>
-      </div>
     </div>
   </div>
 </template>
@@ -167,7 +144,8 @@
 <script>
 //import { mapGetters, mapActions } from "vuex";
 //import axios from "axios";
-import PostLst from "@/components/PostLst"
+//import PostLst from "@/components/PostLst"
+import PostContainer from "@/components/PostContainer"
 
 //let about = true;
 
@@ -182,7 +160,7 @@ export default {
     }
   },
   components:{
-    PostLst
+    PostContainer
   }
 };
 </script>
@@ -261,7 +239,7 @@ $bcolor: #9de2ff;
   .img__block {
     width: 30%;
     margin-top: 84px;
-    margin-left: 30px;
+    margin-left: 5px;
   }
   .content__head {
     display: flex;
@@ -298,7 +276,7 @@ $bcolor: #9de2ff;
   .stages {
     display: block;
     height: 600px;
-    border-bottom: 0.3px solid gray;
+    
     .stage__lst {
       display: flex;
       margin-top: 50px;
@@ -315,9 +293,11 @@ $bcolor: #9de2ff;
         -webkit-box-shadow: 0px 18px 8px 0px rgba(34, 60, 80, 0.2);
         -moz-box-shadow: 0px 18px 8px 0px rgba(34, 60, 80, 0.2);
         box-shadow: 0px 18px 8px 0px rgba(34, 60, 80, 0.2);
-        .stage__name,
-        .stage__description {
-          margin-left: 100px;
+        .stage__name, .stage__description {
+          padding-top: 10px;
+          margin-left: 80px;
+          width: 300px;
+          text-align: left;
         }
         .stage__name {
           margin-top: 10px;
@@ -356,7 +336,9 @@ $bcolor: #9de2ff;
   }
 
   .team {
-    margin-top: 30px;
+    border-top: 0.3px solid gray;
+    padding-top: 20px;
+    margin-top: 250px;
 
     .team__lst {
       margin-top: 20px;
