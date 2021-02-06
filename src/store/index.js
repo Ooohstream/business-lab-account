@@ -10,7 +10,6 @@ export default createStore({
   state: {
     access_token: localStorage.getItem('access_token') || null,
     user_Id: localStorage.getItem('user_Id') || null,
-    userData: null,
   },
   mutations: {
     login(state, access_token, user_Id) {
@@ -20,11 +19,6 @@ export default createStore({
 
     logout(state) {
       state.access_token = null;
-    },
-
-    setUserData(state, userData) {
-      state.userData = userData;
-      console.log(state.userData.login);
     },
   },
   actions: {
@@ -78,19 +72,6 @@ export default createStore({
     },
 
     /* ПОЛУЧИТЬ ДАННЫЕ О ПОЛЬЗОВАТЕЛЕ */
-
-    async fetchUserData(ctx, userId) {
-      axios
-        .post(`http://${base_url}:${PORT}/api/userupdate/alluserinfo`, {
-          access_token: this.state.access_token,
-          user_id: userId,
-        })
-        .then(response => {
-          const userData = response.data.user;
-          ctx.commit('setUserData', userData);
-        })
-        .catch(error => console.log(error));
-    },
   },
   getters: {
     loggedIn(state) {
@@ -99,10 +80,6 @@ export default createStore({
 
     getUserId(state) {
       return state.user_Id;
-    },
-
-    getUserData(state) {
-      return state.userData;
     },
   },
   modules: { post, ent },

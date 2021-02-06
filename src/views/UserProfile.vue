@@ -1,8 +1,23 @@
 <template>
   <div class="user-profile">
     <header><ProgressBar /></header>
-    <MainContent />
-    <About />
+    <MainContent
+      :firstName="userData.firstName"
+      :lastName="userData.lastName"
+      :accountCreated="userData.accountCreated"
+      :age="userData.age"
+      :sex="userData.sex"
+      :vk="userData.vk"
+      :twitter="userData.twitter"
+      :instagram="userData.instagram"
+      :facebook="userData.facebook"
+    />
+    <About
+      :school="userData.school"
+      :university="userData.university"
+      :specialization="userData.specialization"
+      :job="userData.job"
+    />
     <ContentBoxOne />
     <ContentBoxTwo />
     <Footer />
@@ -10,6 +25,7 @@
 </template>
 
 <script>
+import axios from "axios";
 import ProgressBar from "@/components/UserProfile/ProgressBar.vue";
 import MainContent from "@/components/UserProfile/MainContent.vue";
 import About from "@/components/UserProfile/About.vue";
@@ -29,12 +45,26 @@ export default {
 
   data() {
     return {
-      userData: this.$store.getters.getUserData,
+      userData: {},
     };
   },
-
-  created() {
-    this.$store.dispatch("fetchUserData", this.$route.params.userId);
+  mounted() {
+    this.fetchUserData();
+  },
+  methods: {
+    async fetchUserData() {
+      axios
+        .post(`http://78.142.222.201:8080/api/userupdate/alluserinfo`, {
+          access_token: localStorage.getItem("access_token"),
+          user_id: this.$route.params.userId,
+        })
+        .then((response) => {
+          const userData = response.data.user;
+          this.userData = userData;
+          console.log(userData);
+        })
+        .catch((error) => console.log(error));
+    },
   },
 };
 </script>

@@ -15,7 +15,7 @@ export default {
   name: "ProgressBar",
   data() {
     return {
-      filled: 0,
+      filled: 30,
     };
   },
 };
@@ -23,13 +23,13 @@ export default {
 
 <style lang="scss" scoped>
 div {
-  border: none;
   background: $bluish;
   height: 100%;
   width: 0%;
 }
 
 .key20 {
+  height: 1em;
   width: 20%;
 }
 

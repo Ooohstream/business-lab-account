@@ -1,16 +1,22 @@
 <template>
   <div class="main-content">
     <img src="@/assets/profile-picture.jpeg" />
-    <h1>Жмышенко Валерий</h1>
+    <h1>{{ `${firstName} ${lastName}` }}</h1>
     <hr />
-    <p>На проекте с: 19/29/2016</p>
-    <p>Возраст: 54 года</p>
-    <p>Пол: мужской</p>
+    <p>На проекте с: {{ accountCreated }}</p>
+    <p>Возраст: {{ age }}</p>
+    <p>Пол: {{ sex }}</p>
     <div class="socials">
-      <a href="#"><img class="social" src="@/assets/icons/vk.png" /></a>
-      <a href="#"><img class="social" src="@/assets/icons/instagram.png" /></a>
-      <a href="#"><img class="social" src="@/assets/icons/twitter.png" /></a>
-      <a href="#"><img class="social" src="@/assets/icons/facebook.png" /></a>
+      <a :href="vk"><img class="social" src="@/assets/icons/vk.png" /></a>
+      <a :href="instagram"
+        ><img class="social" src="@/assets/icons/instagram.png"
+      /></a>
+      <a :href="twitter"
+        ><img class="social" src="@/assets/icons/twitter.png"
+      /></a>
+      <a :href="facebook"
+        ><img class="social" src="@/assets/icons/facebook.png"
+      /></a>
     </div>
   </div>
 </template>
@@ -21,6 +27,12 @@ export default {
     firstName: String,
     lastName: String,
     accountCreated: String,
+    age: String,
+    sex: String,
+    vk: String,
+    instagram: String,
+    twitter: String,
+    facebook: String,
   },
 };
 </script>

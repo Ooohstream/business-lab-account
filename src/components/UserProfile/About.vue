@@ -5,8 +5,8 @@
       <hr />
       <div class="center">
         <ul>
-          <li>Школа: Lorem ipsum dolor sit amet.</li>
-          <li>ВУЗ/Коледж: Lorem ipsum dolor sit amet.</li>
+          <li>Школа: {{ school }}</li>
+          <li>ВУЗ/Коледж: {{ university }}</li>
         </ul>
       </div>
     </div>
@@ -15,9 +15,8 @@
       <hr />
       <div class="center">
         <ul>
-          <li>Работа:</li>
-          <li>Специализация:</li>
-          <li>Компетенция:</li>
+          <li>Работа: {{ job }}</li>
+          <li>Специализация: {{ specialization }}</li>
         </ul>
       </div>
     </div>
@@ -25,7 +24,14 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    school: String,
+    university: String,
+    job: String,
+    specialization: String,
+  },
+};
 </script>
 
 <style lang="scss" scoped>
