@@ -24,7 +24,7 @@ export default createStore({
 
     setUserData(state, userData) {
       state.userData = userData;
-      console.log(state.userData.target.login);
+      console.log(state.userData.get.login);
     },
   },
   actions: {
