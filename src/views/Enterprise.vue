@@ -45,8 +45,11 @@
                 <img src="@/assets/logo.png" />
               </div>
               <div class="mate__about">
-                <div class="name">
-                  <h4>{{ mate.name }}</h4>
+                <div class="name" v-if="ent.author == mate">
+                  <h4><a href="http://78.142.222.201:80/user/{{ mate }}">Автор</a></h4>
+                </div>
+                <div v-else>
+                  <h4><a href="http://78.142.222.201:80/user/{{ mate }}">Участник</a></h4>
                 </div>
                 <div class="status">
                   {{ mate.status }}
@@ -74,8 +77,11 @@
             <img src="@/assets/logo.png" />
           </div>
           <div class="mate__about">
-            <div class="name">
-              <h4>{{ mate.name }}</h4>
+            <div class="name" v-if="ent.author == mate">
+                  <h4><a href="http://78.142.222.201:80/user/{{ mate }}">Автор</a></h4>
+            </div>
+            <div v-else>
+                  <h4><a href="http://78.142.222.201:80/user/{{ mate }}">Участник</a></h4>
             </div>
             <div class="status">
               {{ mate.status }}
@@ -117,7 +123,6 @@
 //import { mapGetters, mapActions } from "vuex";
 //import axios from "axios";
 
-
 //let about = true;
 
 export default {
@@ -130,7 +135,8 @@ export default {
       type: Array
     }
   },
-  
+  components:{
+  }
 };
 </script>
 
