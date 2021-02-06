@@ -21,9 +21,9 @@ const actions = {
       commit('setEntError', e);
     }
   },
-  async fetchEnts({ commit }) {
+  async fetchEnts({ commit }, token) {
     try {
-      const ents = await getEnts();
+      const ents = await getEnts(token);
       commit('setEnts', ents);
     } catch (e) {
       commit('setEntError', e);
