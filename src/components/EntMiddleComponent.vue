@@ -1,5 +1,5 @@
 <template>
-    <Enterprise :ent="ent" />
+    <Enterprise :ent="ent" :tId="id" />
 </template>
 
 
@@ -8,12 +8,19 @@ import Enterprise from "@/views/Enterprise"
 import { mapGetters, mapActions } from "vuex";
 const token = localStorage.getItem("access_token");
 
+//const _id = $route.query.id
+
 
 
 export default {
     name: 'EntMiddle',
     components:{
         Enterprise
+    },
+    data(){
+        return{
+            id: this.$route.query.id
+        }
     },
     
     created() {

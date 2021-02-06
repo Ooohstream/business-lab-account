@@ -22,6 +22,8 @@ const takePosts = async token => {
 };
 
 const takePostsfromEnt = async (token, id) => {
+  console.log(id)
+  
   const config = {body:{access_token: `${token}`, 'interprise_id': `${id}`}, json: true}
   const takeP = await axios.post(`http://78.142.222.201:${PORT}/api/posts/getfroment`, config)
 

@@ -18,7 +18,7 @@ export default {
     },
     created() {
         const token = localStorage.getItem("access_token");
-        this.fetchEntPosts(token, this.postId);
+        this.fetchEntPosts(token, this.$route.query.id);
         console.log(this.$store);
     },
     computed:{
