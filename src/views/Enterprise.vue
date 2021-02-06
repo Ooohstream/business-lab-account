@@ -22,15 +22,56 @@
           <hr />
           <div class="stages">
             <h4 class="h__stages">Stages</h4>
-            <div class="stage__lst" v-for="(stage, key) in ent.stages" :key="key">
-              <div :class="stage.state">
+            <div class="stage__lst">
+              <div class="completed">
                 <div class="pre_line"></div>
                 <div class="point">
-                  <div class="stage__name">
-                    <h4>{{ stage.name }}</h4>
+                  <div class="stage1">
+                    <h4>{{ ent.stage1 }}</h4>
                   </div>
-                  <div class="stage__description">
-                    <p>{{ stage.description }}</p>
+                </div>
+                <div class="post_line"></div>
+              </div>
+            </div>
+            <div class="stage__lst">
+              <div class="completed">
+                <div class="pre_line"></div>
+                <div class="point">
+                  <div class="stage2">
+                    <h4>{{ ent.stage2 }}</h4>
+                  </div>
+                </div>
+                <div class="post_line"></div>
+              </div>
+            </div>
+            <div class="stage__lst">
+              <div class="completed">
+                <div class="pre_line"></div>
+                <div class="point">
+                  <div class="stage3">
+                    <h4>{{ ent.stage3 }}</h4>
+                  </div>
+                </div>
+                <div class="post_line"></div>
+              </div>
+            </div>
+            <div class="stage__lst">
+              <div class="completed">
+                <div class="pre_line"></div>
+                <div class="point">
+                  <div class="stage4">
+                    <h4>{{ ent.stage4 }}</h4>
+                  </div>
+                </div>
+                <div class="post_line"></div>
+              </div>
+            </div>
+            <div class="stage__lst">
+              <div class="completed">
+                <div class="pre_line"></div>
+                <div class="point">
+                  <div class="stage5">
+                    <h4>{{ ent.stage5 }}</h4>
                   </div>
                 </div>
                 <div class="post_line"></div>
