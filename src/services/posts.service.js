@@ -1,5 +1,6 @@
 import { request } from '@/services/generic.service';
 import axios from 'axios';
+const PORT = '8080';
 
 const getPost = (id, token) =>
   request({
@@ -13,7 +14,7 @@ const getPost = (id, token) =>
 const takePosts = async token => {
   const config = { headers: { access_token: `${token}` }, json: true };
   const getPosts = await axios.get(
-    'http://78.142.222.201:8080/api/posts/',
+    `http://78.142.222.201:${PORT}/api/posts/`,
     config
   );
   console.log(getPosts);
