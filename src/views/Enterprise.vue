@@ -100,7 +100,7 @@
           </div>
           <div class="posts">
             <h4>Посты</h4>
-            <PostContainer :postId = "ent._id" />
+            <PostContainer :postId="tId" />
           </div>
         </div>
       </div>
@@ -157,6 +157,10 @@ export default {
     },
     teamData:{
       type: Array
+    },
+    tId:{
+      type: String,
+      
     }
   },
   components:{

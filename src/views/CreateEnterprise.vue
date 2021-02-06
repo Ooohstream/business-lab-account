@@ -19,6 +19,37 @@
             placeholder="Описание инициативы"
             class="input-description"
           ></textarea>
+
+          <input
+            type="text"
+            class="input-title"
+            placeholder="Первая стадия"
+            v-model="stage1"
+          />
+          <input
+            type="text"
+            class="input-title"
+            placeholder="Вторая стадия"
+            v-model="stage2"
+          />
+          <input
+            type="text"
+            class="input-title"
+            placeholder="Третья стадия"
+            v-model="stage3"
+          />
+          <input
+            type="text"
+            class="input-title"
+            placeholder="Четвертая стадия"
+            v-model="stage4"
+          />
+          <input
+            type="text"
+            class="input-title"
+            placeholder="Пятая стадия"
+            v-model="stage5"
+          />
         </div>
         <div class="button-holder">
           <button type="submit" class="btn btn-primary">Создать</button>
@@ -45,7 +76,7 @@ export default {
       console.log(this.title);
       const config = {
         headers: { access_token: `${token}` },
-        body: { title: `${this.title}`, content: `${this.description}` },
+        body: { title: `${this.title}`, content: `${this.description}` , stage1: `${this.stage1}`,stage2: `${this.stage2}`,stage3: `${this.stage3}`,stage4: `${this.stage4}`,stage5: `${this.stage5}`,},
         json: true,
       };
       axios
@@ -63,10 +94,11 @@ export default {
 .container {
   text-align: left;
   margin: auto;
-  padding-top: 300px;
+  
 }
 .title-description {
   display: block;
+  margin-bottom: 20px;
 }
 input {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
