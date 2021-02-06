@@ -105,7 +105,7 @@ export default {
     .content__header {
       position: absolute;
       top: 205px;
-      left: 35%;
+      padding-left: 200px;
     }
   }
   .post__content {
