@@ -3,30 +3,9 @@
     <h2>Активность:</h2>
     <ul>
       <li>
-        <div class="containerm">
+        <div v-for="(post, index) in posts" :key="index" class="containerm">
           <div class="message-body">
             <p>1</p>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="containerm">
-          <div class="message-body">
-            <p>2</p>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="containerm">
-          <div class="message-body">
-            <p>3</p>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="containerm">
-          <div class="message-body">
-            <p>4</p>
           </div>
         </div>
       </li>
@@ -35,7 +14,11 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    posts: [],
+  },
+};
 </script>
 
 <style lang="scss" scoped>

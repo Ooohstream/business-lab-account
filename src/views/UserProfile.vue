@@ -19,7 +19,7 @@
       :job="userData.job"
     />
     <ContentBoxOne :bio="userData.aboutme" />
-    <ContentBoxTwo />
+    <ContentBoxTwo :posts="userData.posts" />
     <Footer :phone="userData.mobile" :email="userData.email" />
   </div>
 </template>
