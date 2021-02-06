@@ -98,6 +98,10 @@
               </div>
             </div>
           </div>
+          <div class="posts">
+            <h4>Посты</h4>
+            <PostLst :posts="ent.posts" />
+          </div>
         </div>
       </div>
       <br />
@@ -163,6 +167,7 @@
 <script>
 //import { mapGetters, mapActions } from "vuex";
 //import axios from "axios";
+import PostLst from "@/components/PostLst"
 
 //let about = true;
 
@@ -177,6 +182,7 @@ export default {
     }
   },
   components:{
+    PostLst
   }
 };
 </script>
