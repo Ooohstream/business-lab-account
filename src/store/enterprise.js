@@ -4,8 +4,8 @@ const mutations = {
   setEnt(state, ent) {
     state.ent = ent;
   },
-  setEnts(state, ent) {
-    state.ent = ent;
+  setEnts(state, ents) {
+    state.ents = ents;
   },
   setEntError(state, e) {
     state.entError = e;
