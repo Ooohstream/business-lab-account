@@ -33,7 +33,7 @@ export default {
     };
   },
 
-  beforeMount() {
+  created() {
     this.$store.dispatch("fetchUserData", this.$route.params.userId);
   },
 };
