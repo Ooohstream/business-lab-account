@@ -1,5 +1,6 @@
 <template>
   <div v-if="ents.length != 0" class="ent__list">
+    <h3>Список инициатив</h3>
     <div class="ent__container" v-for="(ent, key) in ents" :key="key">
       <EntCard :title="ent.title" :content="ent.content" :id="ent._id" />
     </div>
@@ -34,5 +35,8 @@ export default {
   margin-left: 10%;
   margin-top: 10%;
   align-items: center;
+}
+h3{
+  padding-bottom: 70px;
 }
 </style>
