@@ -84,7 +84,7 @@
         </div>
       </div>
       <div class="join__btn">
-        <button class="btn btn-primary">Присоединиться</button>
+        <button class="btn btn-primary" v-on:click="join">Присоединиться</button>
       </div>
       <div class="slider">
         <input
@@ -115,6 +115,7 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex";
+import axios from "axios";
 
 
 let about = true;
@@ -173,6 +174,21 @@ export default {
       }
       console.log(about);
     },
+    join(e){
+      const token = localStorage.getItem("access_token");
+      const config = {
+        headers: { access_token: `${token}` },
+        body: { access_token: `${token}`, interprise_id: `${this.$route.params.id}` },
+        json: true,
+      };
+      axios
+        .post("http://78.142.222.201:80/api/enterprise/intoteaminterprise", config)
+        .then((response) => {
+          console.log(response);
+        });
+      e.preventDefault();
+
+    }
   },
 };
 </script>
