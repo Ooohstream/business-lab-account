@@ -19,6 +19,11 @@
             ><img src="@/assets/icons/board.png"
           /></router-link>
         </li>
+        <li>
+          <router-link to="/createenterprise"
+            ><img src="@/assets/icons/create.png"
+          /></router-link>
+        </li>
         <li class="exit">
           <a @click="logout"
             ><img class="exit" src="@/assets/icons/exit.png"

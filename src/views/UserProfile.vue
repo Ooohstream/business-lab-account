@@ -124,8 +124,8 @@ export default {
       display: flex;
 
       a {
-        margin: 20% auto;
-
+        display: inline-block;
+        margin: 5em auto;
         img {
           width: 30px;
         }
@@ -216,13 +216,9 @@ export default {
     overflow: auto;
 
     ul {
-      padding: 0.3em;
       font-size: 1.5rem;
       li {
-        display: block;
-        border: lightskyblue solid 2px;
-        margin: 0.2em;
-        padding: 0.3em;
+        display: inline-block;
       }
     }
   }
