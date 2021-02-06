@@ -7,8 +7,8 @@
           <img src="@/assets/logo.png" />
         </div>
         <div class="content__header">
-          <h1>Lorem ipsum{{ title }}</h1>
-          <h3>by: Sigarachi{{ author }}</h3>
+          <h1>{{ ent.title }}</h1>
+          <h3>{{ ent.author }}</h3>
         </div>
       </div>
       <div class="post__content">
@@ -16,29 +16,13 @@
           <div class="description">
             <h4>Description</h4>
             <p>
-              {{ content }}
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis
-              dignissimos quae, non mollitia, nulla provident et explicabo
-              voluptas, exercitationem consequuntur dolore quia alias natus
-              aliquid deleniti amet cumque eaque voluptate? Lorem ipsum, dolor
-              sit amet consectetur adipisicing elit. Facilis dignissimos quae,
-              non mollitia, nulla provident et explicabo voluptas,
-              exercitationem consequuntur dolore quia alias natus aliquid
-              deleniti amet cumque eaque voluptate? Lorem ipsum, dolor sit amet
-              consectetur adipisicing elit. Facilis dignissimos quae, non
-              mollitia, nulla provident et explicabo voluptas, exercitationem
-              consequuntur dolore quia alias natus aliquid deleniti amet cumque
-              eaque voluptate? Lorem ipsum, dolor sit amet consectetur
-              adipisicing elit. Facilis dignissimos quae, non mollitia, nulla
-              provident et explicabo voluptas, exercitationem consequuntur
-              dolore quia alias natus aliquid deleniti amet cumque eaque
-              voluptate?
+              {{ ent.content }}
             </p>
           </div>
           <hr />
           <div class="stages">
             <h4 class="h__stages">Stages</h4>
-            <div class="stage__lst" v-for="(stage, key) in stages" :key="key">
+            <div class="stage__lst" v-for="(stage, key) in ent.stages" :key="key">
               <div :class="stage.state">
                 <div class="pre_line"></div>
                 <div class="point">
@@ -56,7 +40,7 @@
           </div>
           <div class="team">
             <h4>Team</h4>
-            <div class="team__lst" v-for="(mate, key) in team" :key="key">
+            <div class="team__lst" v-for="(mate, key) in ent.team" :key="key">
               <div class="mate__avatar">
                 <img src="@/assets/logo.png" />
               </div>
@@ -77,13 +61,13 @@
     <div class="right__navbar">
       <div class="created__at">
         <h4>Дата создания</h4>
-        <p>{{ createdAt }}</p>
+        <p>{{ ent.createdAt }}</p>
       </div>
       <div class="our__challengers">
-        <h4>Уже участвуют {{ team.length }}</h4>
+        <h4>Уже участвуют {{ ent.team.length }}</h4>
         <div
           class="lst__item"
-          v-for="(mate, key) in team.slice(0, 3)"
+          v-for="(mate, key) in ent.team.slice(0, 3)"
           :key="key"
         >
           <div class="mate__avatar">
@@ -132,7 +116,7 @@
 <script>
 import { mapGetters, mapActions } from "vuex";
 
-const token = localStorage.getItem("access_token");
+
 let about = true;
 
 export default {
@@ -169,7 +153,8 @@ export default {
     },
   },
   mounted() {
-    this.fetchEnt(this.id, token);
+    const token = localStorage.getItem("access_token");
+    this.fetchEnt(this.$route.params.id, token);
   },
   computed: {
     ...mapGetters({
