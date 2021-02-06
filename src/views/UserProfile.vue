@@ -18,9 +18,9 @@
       :specialization="userData.specialization"
       :job="userData.job"
     />
-    <ContentBoxOne />
+    <ContentBoxOne :bio="userData.aboutme" />
     <ContentBoxTwo />
-    <Footer />
+    <Footer :phone="userData.mobile" :email="userData.email" />
   </div>
 </template>
 
@@ -48,7 +48,7 @@ export default {
       userData: {},
     };
   },
-  mounted() {
+  created() {
     this.fetchUserData();
   },
   methods: {
@@ -124,7 +124,7 @@ export default {
       display: flex;
 
       a {
-        margin: 0 auto;
+        margin: 20% auto;
 
         img {
           width: 30px;
