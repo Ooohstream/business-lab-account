@@ -27,7 +27,7 @@ export default {
     firstName: String,
     lastName: String,
     accountCreated: String,
-    age: String,
+    age: Number,
     sex: String,
     vk: String,
     instagram: String,
