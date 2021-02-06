@@ -20,6 +20,7 @@
 </template>
 
 <script>
+
 export default {
   name: "PostCard",
   props: {
@@ -38,7 +39,7 @@ export default {
   },
   methods: {
     goto(id) {
-      window.location.href = "/enterprise/" + id;
+      this.$router.push({path:"/enterprise/", query:{id: id}})
     },
   },
 };

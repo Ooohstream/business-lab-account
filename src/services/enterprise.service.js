@@ -34,17 +34,17 @@ async function getEnts(token) {
 }
 
 async function getEnt(id, token) {
-  const config = {
-    headers: { access_token: `${token}` },
-    body: { id: `${id}` },
-    json: true,
-  };
-  const takeEnts = await axios
-    .get(`http://78.142.222.201:${PORT}/api/enterprise/getbyid`, config)
-    .then(response => {
-      console.log(response);
-    });
-  console.log(takeEnts);
+  const smToken = localStorage.getItem("access_token")
+  console.log("ID: "+ id)
+  console.log("Token: " + token)
+  const _id = id
+  console.log(_id)
+  const config = { headers:{'Content-Type': 'application/*+json', "access_token": `${smToken}`}, params:{'interprise_id': `${_id}`},json: true };
+  console.log(config)
+  const takeEnt = await axios.get(`http://78.142.222.201:${PORT}/api/enterprise/getbyid`, config)
+    
+  console.log(takeEnt);
+  return takeEnt.data.interprises;
 }
 
 export { getEnt, getEnts, createEnt };
