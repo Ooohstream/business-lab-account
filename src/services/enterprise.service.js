@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+const PORT = 8080;
 //const getEnt = (id, token) =>  request({url: `enterprise/onepost` , method: 'get',header:{'access_token':token}, body:{'id':id}})
 //const  getEnts = (token) => request({url: `entrerprise/` , method: 'get', header:{'token':token}})
 

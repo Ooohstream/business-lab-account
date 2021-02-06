@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+const PORT = 8080;
+
 const API_URL = `78.142.222.201:${PORT}/api`;
 
 export const request = async ({
