@@ -15,6 +15,7 @@ const mutations = {
 const actions = {
   async fetchEnt({ commit }, id, token) {
     try {
+      console.log("Fetch" + token)
       const ent = await getEnt(id, token);
       commit('setEnt', ent);
     } catch (e) {

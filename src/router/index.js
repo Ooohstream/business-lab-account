@@ -6,7 +6,7 @@ import UserProfile from '../views/UserProfile.vue';
 import HomePage from '../views/HomePage.vue';
 import store from '../store/index.js';
 import Post from '@/views/Post.vue';
-import Enterprise from '@/views/Enterprise.vue';
+import EntMiddleComponent from '@/components/EntMiddleComponent.vue';
 import CreateEnterprise from '@/views/CreateEnterprise.vue';
 
 const routes = [
@@ -48,9 +48,9 @@ const routes = [
     component: Post,
   },
   {
-    path: '/enterprise/:id',
-    name: 'Enterprise',
-    component: Enterprise,
+    path: '/enterprise',
+    name: 'EntMiddleComponent',
+    component: EntMiddleComponent,
   },
   {
     path: '/createenterprise',

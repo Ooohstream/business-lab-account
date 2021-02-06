@@ -7,7 +7,7 @@
           <img src="@/assets/logo.png" />
         </div>
         <div class="content__header">
-          <h1>{{ ent.title }}</h1>
+          <h4>{{ ent.title }}</h4>
           <h3>{{ ent.author }}</h3>
         </div>
       </div>
@@ -114,82 +114,20 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
-import axios from "axios";
+//import { mapGetters, mapActions } from "vuex";
+//import axios from "axios";
 
 
-let about = true;
+//let about = true;
 
 export default {
   name: "Enterprise",
   props: {
-    stages: {
-      type: Array,
-      default: () => [
-        { state: "completed", name: "1 Point", description: "Smth" },
-        { state: "current", name: "2 Point", description: "Smth" },
-        { state: "not_active", name: "3 Point", description: "Smth" },
-      ],
-    },
-    team: {
-      type: Array,
-      default: () => [
-        { name: "Alex", status: "Initiator", avatar: "@/assets/logo.png" },
-        { name: "Pavel", status: "Investor", avatar: "@/assets/logo.png" },
-        { name: "Tom", status: "Programmer", avatar: "@/assets/logo.png" },
-        { name: "Jack", status: "Designer", avatar: "@/assets/logo.png" },
-      ],
-    },
-    createdAt: {
-      type: String,
-      default: "22.03.1998",
-    },
-    id: {
-      type: Number,
-      default: 0,
-    },
-    posts: {
-      type: Array,
-      default: () => [],
-    },
-  },
-  mounted() {
-    const token = localStorage.getItem("access_token");
-    this.fetchEnt(this.$route.params.id, token);
-  },
-  computed: {
-    ...mapGetters({
-      ent: "ent",
-    }),
-  },
-  methods: {
-    ...mapActions({
-      fetchEnt: "fetchEnt",
-    }),
-    onCheck() {
-      if (about) {
-        about = false;
-      } else {
-        about = true;
-      }
-      console.log(about);
-    },
-    join(e){
-      const token = localStorage.getItem("access_token");
-      const config = {
-        headers: { access_token: `${token}` },
-        body: { access_token: `${token}`, interprise_id: `${this.$route.params.id}` },
-        json: true,
-      };
-      axios
-        .post("http://78.142.222.201:8080/api/enterprise/intoteaminterprise", config)
-        .then((response) => {
-          console.log(response);
-        });
-      e.preventDefault();
-
+    ent:{
+      type: Object
     }
   },
+  
 };
 </script>
 
@@ -276,8 +214,8 @@ $bcolor: #9de2ff;
     border-bottom: 0.3px solid gray;
     .content__header {
       position: absolute;
-      top: 150px;
-      left: 22%;
+      top: 158px;
+      left: 25%;
       font-size: 20pt;
     }
   }
