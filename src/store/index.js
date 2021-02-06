@@ -34,7 +34,7 @@ export default createStore({
     async login(ctx, credentials) {
       return new Promise((resolve, reject) => {
         axios
-          .post(`http://${base_url}:80/api/auth/login/`, {
+          .post(`http://${base_url}:8080/api/auth/login/`, {
             email: credentials.username,
             password: credentials.password,
           })
@@ -65,7 +65,7 @@ export default createStore({
 
     async register(ctx, credentials) {
       axios
-        .post(`http://${base_url}:80/api/auth/register/`, {
+        .post(`http://${base_url}:8080/api/auth/register/`, {
           email: credentials.email,
           password: credentials.password,
           login: credentials.username,
@@ -80,7 +80,7 @@ export default createStore({
 
     async fetchUserData(ctx, userId) {
       axios
-        .post(`http://${base_url}:80/api/userupdate/alluserinfo`, {
+        .post(`http://${base_url}:8080/api/userupdate/alluserinfo`, {
           access_token: this.state.access_token,
           user_id: userId,
         })

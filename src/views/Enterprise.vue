@@ -182,7 +182,7 @@ export default {
         json: true,
       };
       axios
-        .post("http://78.142.222.201:80/api/enterprise/intoteaminterprise", config)
+        .post("http://78.142.222.201:8080/api/enterprise/intoteaminterprise", config)
         .then((response) => {
           console.log(response);
         });

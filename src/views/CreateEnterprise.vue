@@ -49,7 +49,7 @@ export default {
         json: true,
       };
       axios
-        .post("http://78.142.222.201:80/api/enterprise/createinterpise", config)
+        .post("http://78.142.222.201:8080/api/enterprise/createinterpise", config)
         .then((response) => {
           console.log(response);
         });

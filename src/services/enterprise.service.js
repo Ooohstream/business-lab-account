@@ -10,7 +10,7 @@ async function createEnt(title, description, token) {
     json: true,
   };
   const sendEnt = await axios
-    .post('http://78.142.222.201:80/api/enterprise/createinterpise', config)
+    .post('http://78.142.222.201:8080/api/enterprise/createinterpise', config)
     .then(response => {
       console.log(response);
     });
@@ -21,7 +21,7 @@ async function getEnts(token) {
   const config = { headers: { "access_token": `${token}` }, json: true };
   console.log('TOKEN '+ token)
   const takeEnts = await axios
-    .get('http://78.142.222.201:80/api/enterprise/allinterpises', config)
+    .get('http://78.142.222.201:8080/api/enterprise/allinterpises', config)
     
   console.log(takeEnts.data.interprises);
   return takeEnts.data.interprises
@@ -35,7 +35,7 @@ async function getEnt(id, token) {
     json: true,
   };
   const takeEnts = await axios
-    .get('http://78.142.222.201:80/api/enterprise/onepost', config)
+    .get('http://78.142.222.201:8080/api/enterprise/onepost', config)
     .then(response => {
       console.log(response);
     });
