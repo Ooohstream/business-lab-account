@@ -23,6 +23,7 @@ export default createStore({
 
     setUserData(state, userData) {
       state.userData = userData;
+      console.log(state.userData);
     },
   },
   actions: {
@@ -31,19 +32,25 @@ export default createStore({
     //АВТОРИЗАЦИЯ
 
     async login(ctx, credentials) {
-      axios
-        .post(`http://${base_url}:80/api/auth/login/`, {
-          email: credentials.username,
-          password: credentials.password,
-        })
-        .then(response => {
-          const access_token = response.data.access_token;
-          const user_Id = response.data.userId;
-          localStorage.setItem('access_token', access_token);
-          localStorage.setItem('user_Id', user_Id);
-          ctx.commit('login', access_token, user_Id);
-        })
-        .catch(error => console.log(error));
+      return new Promise((resolve, reject) => {
+        axios
+          .post(`http://${base_url}:80/api/auth/login/`, {
+            email: credentials.username,
+            password: credentials.password,
+          })
+          .then(response => {
+            const access_token = response.data.access_token;
+            const user_Id = response.data.userId;
+            localStorage.setItem('access_token', access_token);
+            localStorage.setItem('user_Id', user_Id);
+            ctx.commit('login', access_token, user_Id);
+            resolve(response);
+          })
+          .catch(error => {
+            console.log(error);
+            reject(error);
+          });
+      });
     },
 
     //LOGOUT
@@ -69,6 +76,8 @@ export default createStore({
         .catch(error => console.log(error));
     },
 
+    /* ПОЛУЧИТЬ ДАННЫЕ О ПОЛЬЗОВАТЕЛЕ */
+
     async fetchUserData(ctx, userId) {
       axios
         .post(`http://${base_url}:80/api/userupdate/alluserinfo`, {
@@ -76,7 +85,7 @@ export default createStore({
           user_id: userId,
         })
         .then(response => {
-          const userData = response.data;
+          const userData = response.data.user;
           ctx.commit('setUserData', userData);
         })
         .catch(error => console.log(error));

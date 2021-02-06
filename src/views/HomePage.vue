@@ -1,6 +1,6 @@
 <!--Created by sigarachi-->
 <template>
-  <EntLst :ents="ents"/>
+  <EntLst :ents="ents" />
 </template>
 
 
@@ -14,7 +14,7 @@ export default {
     EntLst,
   },
   data: () => ({}),
-  mounted() {
+  created() {
     const token = localStorage.getItem("access_token");
     this.fetchEnts(token);
     console.log(this.$store);

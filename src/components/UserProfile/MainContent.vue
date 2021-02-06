@@ -16,7 +16,13 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    firstName: String,
+    lastName: String,
+    accountCreated: String,
+  },
+};
 </script>
 
 <style lang="scss" scoped>

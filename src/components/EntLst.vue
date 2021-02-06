@@ -4,7 +4,7 @@
       <EntCard :title="ent.title" :content="ent.content" :id="ent._id" />
     </div>
   </div>
-  <div v-else style="color: red">
+  <div v-show="ents.lenght == 0">
     <h1>No conten</h1>
   </div>
 </template>
