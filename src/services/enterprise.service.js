@@ -35,7 +35,7 @@ async function getEnt(id, token) {
     json: true,
   };
   const takeEnts = await axios
-    .get('http://78.142.222.201:8080/api/enterprise/onepost', config)
+    .get('http://78.142.222.201:8080/api/enterprise/getbyid', config)
     .then(response => {
       console.log(response);
     });
