@@ -13,7 +13,7 @@ const getPost = (id, token) =>
 const takePosts = async token => {
   const config = { headers: { access_token: `${token}` }, json: true };
   const getPosts = await axios.get(
-    'http://78.142.222.201:80/api/posts/',
+    `http://78.142.222.201:${PORT}/api/posts/`,
     config
   );
   console.log(getPosts);

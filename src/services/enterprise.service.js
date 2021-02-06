@@ -10,7 +10,10 @@ async function createEnt(title, description, token) {
     json: true,
   };
   const sendEnt = await axios
-    .post('http://78.142.222.201:80/api/enterprise/createinterpise', config)
+    .post(
+      `http://78.142.222.201:${PORT}/api/enterprise/createinterpise`,
+      config
+    )
     .then(response => {
       console.log(response);
     });
@@ -18,24 +21,25 @@ async function createEnt(title, description, token) {
 }
 
 async function getEnts(token) {
-  const config = { headers: { "access_token": `${token}` }, json: true };
-  console.log('TOKEN '+ token)
-  const takeEnts = await axios
-    .get('http://78.142.222.201:80/api/enterprise/allinterpises', config)
-    
+  const config = { headers: { access_token: `${token}` }, json: true };
+  console.log('TOKEN ' + token);
+  const takeEnts = await axios.get(
+    `http://78.142.222.201:${PORT}/api/enterprise/allinterpises`,
+    config
+  );
+
   console.log(takeEnts.data.interprises);
-  return takeEnts.data.interprises
-  
+  return takeEnts.data.interprises;
 }
 
 async function getEnt(id, token) {
   const config = {
-    headers: { "access_token": `${token}` },
+    headers: { access_token: `${token}` },
     body: { id: `${id}` },
     json: true,
   };
   const takeEnts = await axios
-    .get('http://78.142.222.201:80/api/enterprise/onepost', config)
+    .get(`http://78.142.222.201:${PORT}/api/enterprise/onepost`, config)
     .then(response => {
       console.log(response);
     });
